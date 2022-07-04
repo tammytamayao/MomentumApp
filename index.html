@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/styles/main.css">
     <title>Momentum App</title>
+    <link rel="stylesheet" href="/assets/styles/main.css">
 </head>
+
 <body>
     <div class="container">
         <div class="time">
@@ -14,7 +17,34 @@
         </div>
     </div>
 
+    <h1>Momentum App</h1>
+
+    <section id="name-section">
+        <label for="name">What is your name?</label>
+        <input type="text" name="name" id="name">
+
+        <p id="name-error"></p>
+    </section>
+
+    <section class="hide" id="email-section">
+        <label for="email">What is your email?</label>
+        <input type="email" name="email" id="email">
+
+        <p id="email-error"></p>
+    </section>
+
+    <section class="hide" id="password-section">
+        <label for="password">Assign password</label>
+        <input type="password" name="password" id="password">
+
+        <p id="password-error"></p>
+    </section>
+
+
+
+    <script src="/assets/scripts/index.js"></script>
     <script src="assets/scripts/time.js"></script>
     <script src="assets/scripts/background.js"></script>
 </body>
+
 </html>
