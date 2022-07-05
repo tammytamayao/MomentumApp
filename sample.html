@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample To-Do list</title>
+<style>
+
+* {
+ position: relative;
+ box-sizing: border-box;
+  }
+
+/*container style*/
+.container {
+  max-width: 280px;
+  min-height: 250px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+/* Checkbox when checked*/
+input[type=checkbox]:checked + label.textlabel {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/*design of to-do list item*/
+ul li {
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  list-style: none;
+}
+
+/*Change background of list item when hover*/
+ul li:hover {
+  background: beige;
+  cursor: pointer;
+}
+
+/* Change background of list item alternately*/
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/*Style close button*/
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/*Change background of close button when hover*/
+.close:hover {
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+}
+
+/*Style add item button */
+.AddBtn {
+  background: #d9d9d9;
+  color: #555;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/*Change background of add button when hover*/
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+.header {
+  padding-left: 25px;
+  padding-left: 25px;
+}
+
+input {
+  width:200px;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+    <div class="header">
+        <h2 id="title">My To Do List</h2>
+        <input type="text" id="input" placeholder="New To-Do">
+        <button onclick="newToDo()" class="AddBtn">+</button>
+    </div>
+
+    <div>
+    <ul id="ul"></ul>
+    </div>
+  </div>
+      <script>
+
+// Create new to-do item when clicking "+" button
+function newToDo() {
+  var list = document.createElement("li");
+  var input = document.getElementById("input").value;
+
+  var checkbox = document.createElement('input');
+    checkbox.type = "checkbox";
+    checkbox.name = "checkbox";
+    checkbox.value = "value";
+    checkbox.id = "id";
+    
+  var label = document.createElement('label');
+    label.className="textlabel";
+    label.appendChild(document.createTextNode(input));
+    list.appendChild(checkbox);
+    list.appendChild(label);
+
+    if (input === '') {
+        alert("Write what you want to do!");
+    } else {
+        document.getElementById("ul").appendChild(list);
+    }
+    document.getElementById("input").value = "";
+
+var span = document.createElement("span");
+var txt = document.createTextNode("\u00D7");
+span.className = "close";
+span.appendChild(txt);
+list.appendChild(span);
+
+for (i = 0; i < close.length; i++) {
+close[i].onclick = function() {
+var div = this.parentElement;
+div.style.display = "none";
+    }
+  }
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+  </script>
+</body>
+</html>
