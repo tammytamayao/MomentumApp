@@ -41,3 +41,7 @@ const quotes = [
     }
 ];
 
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)].quote;
+
+const quoteDiv = document.querySelector(".random-quote");
+quoteDiv.textContent = `"${randomQuote}"`;
