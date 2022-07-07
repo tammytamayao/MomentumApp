@@ -103,22 +103,21 @@
     <div class="header">
       <h2 id="title">My To Do List</h2>
       <form>
-        <input type="text" id="input" placeholder="Add new task...">
+        <input type="text" id="input" placeholder="Add new task." autocomplete="off">
         <button onclick="newToDo()" class="AddBtn" type="submit">+</button>
       </form>
     </div>
 
     <div>
-      <ul id="ul"></ul>
+      <ul id="ul" class="todo-list"></ul>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
   <script>
 
-//get stored value from todolist and copy it to new array
+    //get stored value from todolist and copy it to new array
     let tempToDoList = [];
-    console.log(localStorage.getItem('toDoList'));
     if (localStorage.getItem('toDoList') != null) {
       tempToDoList = JSON.parse(localStorage.getItem('toDoList'));
     }
@@ -126,16 +125,39 @@
     var toDoList = []; // [ 1:{ text: 'aksdjasd', done: true }]
     if (tempToDoList.length > 0) {
       toDoList = tempToDoList;
-      toDoList.forEach(function(item, index) {
+      toDoList.forEach(function (item, index) {
         displayList(item, index);
       })
     }
+
     // Remove todo
-    $('.close').click(function (e) {
-      var spans = document.querySelectorAll('.close');
-      toDoList.splice(Array.from(spans).indexOf(e.target), 1);
-      localStorage.setItem('toDoList', JSON.stringify(toDoList));
-    });
+    // $('.close').click(function (e) {
+    //   var spans = document.querySelectorAll('.close');
+    //   toDoList.splice(Array.from(spans).indexOf(e.target), 1);
+    //   localStorage.setItem('toDoList', JSON.stringify(toDoList));
+    // });
+
+    // Delete todo
+    //NEED TO FIX - MAY DI NABUBURA SA LOCAL STORAGE
+    $('.todo-list').on('click', '.close', function () {
+      console.log('getting close');
+      let listIndex = $(this).closest('li').data('index');
+      let taskList = JSON.parse(localStorage.getItem('toDoList'))
+      let taskItem = taskList.splice(listIndex, 1);
+      localStorage.setItem('toDoList', JSON.stringify(taskList));
+      console.log(taskList);
+    })
+
+
+    // Done task on checkbox
+    $('.todo-list').on('change', '.listItem', function () {
+      let doneTask = $(this).is(':checked');
+      let listIndex = $(this).closest('li').data('index');
+      let taskList = JSON.parse(localStorage.getItem('toDoList'));
+      let listItem = taskList[listIndex];
+      listItem.done = doneTask;
+      localStorage.setItem('toDoList', JSON.stringify(taskList));
+    })
 
     //add to-do list item and store it in web browser
     function newToDo() {
@@ -145,8 +167,9 @@
       var checkbox = document.createElement('input');
       checkbox.type = "checkbox";
       checkbox.name = "checkbox";
-      checkbox.value = "value";
+      // checkbox.value = "value";
       checkbox.id = "checkbox";
+      checkbox.className = 'listItem';
 
       var label = document.createElement('label');
       label.className = "textlabel";
@@ -171,6 +194,8 @@
       list.appendChild(span);
       toDoList.push({ text: input, done: false });
       localStorage.setItem('toDoList', JSON.stringify(toDoList));
+      // console.log(toDoList.length);
+      list.setAttribute('data-index', toDoList.length - 1);
 
       for (i = 0; i < close.length; i++) {
         close[i].onclick = function () {
@@ -184,10 +209,12 @@
     //display stored list when refreshed
     function displayList(input, index) {
       var list = document.createElement("li");
+      list.setAttribute('data-index', index);
       var checkbox = document.createElement('input');
       checkbox.type = "checkbox";
       checkbox.name = "todolist_" + index;
       checkbox.id = index;
+      checkbox.className = 'listItem';
 
       var label = document.createElement('label');
       label.className = "textlabel";
@@ -197,10 +224,11 @@
         checkbox.checked = "true";
       }
 
+
       list.appendChild(checkbox);
       list.appendChild(label);
-     
-      
+
+
       if (input === '') {
         alert("Write what you want to do!");
       } else {
@@ -224,7 +252,7 @@
       }
     }
 
-//Click close button to hide element
+    //Click close button to hide element
     var close = document.getElementsByClassName("close");
     var i;
     for (i = 0; i < close.length; i++) {
