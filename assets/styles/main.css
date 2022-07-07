@@ -38,7 +38,7 @@ Main Container Grid
                         "settings quote quote todo" 
                         "settings quote quote todo";
     width: 100vw;
-    height: 100vh;
+    height: 98.6vh;
     justify-content: center;
     align-content: center;
 }
@@ -70,7 +70,6 @@ Main Container Grid
     grid-area: quote;
     justify-self: center;
     align-self: end;
-    margin-bottom: 0.5rem;
 }
 
 .container-todo {
@@ -93,7 +92,7 @@ Main Container Grid
 
 .container-settings,
 .container-todo {
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
 
@@ -156,6 +155,6 @@ Media Queries
                         "clock clock clock clock" 
                         "focus focus focus focus" 
                         "quote quote quote quote" 
-                        "settings setting todo todo";
+                        "settings settings todo todo";
 }
 }
