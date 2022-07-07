@@ -40,11 +40,32 @@
         <p id="password-error"></p>
     </section>
 
+    <div class="myFocus">
+        <div class="myFocusQuestion">
+            <label>What is your main focus for today?</label><br>
+        </div>
+        <div class="myFocusInput">
+            <input type="text" id="focus">
+        </div>
+    </div>
 
+    <div class="mainFocus hide">
+        <div class="today">TODAY</div>
+        <div class="finalFocus">
+            <input type="checkbox" id="focusCheck">
+            <div id="getFocus">
+                <p class="focusOutput" id="textFocusOutput"></p>
+            </div>
+            <button class="dotsContainer"><div class = "dots">
+                ...
+            </div></button>
+        </div>
+    </div>
 
-    <script src="/assets/scripts/index.js"></script>
     <script src="assets/scripts/time.js"></script>
+    <script src="assets/scripts/focus.js"></script>
     <script src="assets/scripts/background.js"></script>
+    <script src="assets/scripts/index.js"></script>
 </body>
 
 </html>
