@@ -124,7 +124,8 @@ Typography
     font-size: 23vh;
 }
 
-.random-quote{
+.random-quote,
+.fa-gear {
     font-size: 1.125rem;
     text-align: center;
 }
