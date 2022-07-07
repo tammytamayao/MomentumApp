@@ -68,7 +68,7 @@ function addQuote() {
 function setRandomQuote() {
     const quotes = JSON.parse(localStorage.getItem('quotes'));
     const quoteSpan = document.querySelector(".random-quote");
-    const quotePersonSpan = document.querySelector(".quote-person");
+    const quotePersonSpan = document.querySelector(".person");
 
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     quoteSpan.textContent = `"${randomQuote.quote}"`;
