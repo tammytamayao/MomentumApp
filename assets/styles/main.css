@@ -59,23 +59,36 @@ Main Container Grid
     grid-area: settings;
     justify-self: start;
     align-self: end;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
 }
 
 .container-quote {
     grid-area: quote;
     justify-self: center;
     align-self: end;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .container-todo {
     grid-area: todo;
     justify-self: end;
     align-self: end;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+}
+
+.container-clock,
+.container-weather,
+.container-todo {
+    margin-right: 1.2rem;
+}
+
+.container-clock,
+.container-link,
+.container-settings {
+    margin-left: 1.2rem;
+}
+
+.container-settings,
+.container-todo {
+    margin-bottom: 1.2rem;
 }
 
 
@@ -85,7 +98,33 @@ Typography
 ===================================================================
 */
 .clock {
-    font-size: 20vh;
+    font-size: 23vh;
+}
+
+.quote-div, 
+.quote-person-div {
+    text-align: center;
+}
+
+.random-quote {
+    font-size: 1.125rem;
+}
+
+.quote-person {
+    font-size: 0.875rem;
+}
+
+.img-desc {
+    font-size: 0.8125rem;
+}
+
+.photographer {
+    font-size: 0.6875rem;
+}
+
+.quote-person,
+.photographer {
+    color: rgba(255,255,255,0.8);
 }
 
 
