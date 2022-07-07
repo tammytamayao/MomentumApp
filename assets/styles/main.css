@@ -78,6 +78,7 @@ Main Container Grid
     grid-area: todo;
     justify-self: end;
     align-self: end;
+    margin-bottom: 1.2rem;
 }
 
 .container-clock,
@@ -93,7 +94,6 @@ Main Container Grid
 }
 
 .container-settings,
-.container-todo,
 .container-quote {
     margin-bottom: 1.2rem;
 }
@@ -101,13 +101,35 @@ Main Container Grid
 .photographer-div,
 .person-div {
     display: flex;
-    align-items: flex-end;
-    flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
 }
 
+.quote-person-div,
+.desc-photographer-div {
+    position: relative;
+}
+
+.desc-photographer-div {
+    height: 2em;
+    width: 11.5rem;
+}
+
+.desc-div {
+    position: absolute;
+    top: 20%;
+
+    transition: top 0.3s;
+}
+
+
 .photographer-div {
+    position: absolute;
     justify-content: flex-start;
+    opacity: 0;
+    bottom: 20%;
+
+    transition: bottom 0.3s, opacity 0.3s;
 }
 
 .person-div {
@@ -172,6 +194,17 @@ Transitions
 .photographer:hover {
     color: white;
     cursor: pointer;
+}
+
+.desc-photographer-div:hover > .desc-div,
+.quote-person-div:hover > .quote-div {
+    top: 0;
+}
+
+.desc-photographer-div:hover > .photographer-div,
+.quote-person-div:hover > .person-div {
+    bottom: 0;
+    opacity: 1;
 }
 
 
