@@ -38,16 +38,22 @@ const images = [
     }
 ];
 
-const img = document.createElement("img");
 const description = document.querySelector(".img-desc");
 const photographer = document.querySelector(".photographer");
-
-const randomImage = images[(Math.floor(Math.random() * images.length))];
-
-img.className = "bgImage";
-img.src = `assets/images/${randomImage.src}`;
-
-description.textContent = randomImage.description;
-photographer.textContent = randomImage.photographer;
-
+const img = document.createElement("img");
 body.appendChild(img);
+
+function setRandomBackground() {
+    const randomImage = images[(Math.floor(Math.random() * images.length))];
+    
+    img.className = "bgImage";
+    img.src = `assets/images/${randomImage.src}`;
+    
+    description.textContent = randomImage.description;
+    photographer.textContent = randomImage.photographer;
+};
+
+const imgShuffle = document.querySelector("#img-shuffle");
+imgShuffle.addEventListener("click", setRandomBackground);
+
+setRandomBackground();
