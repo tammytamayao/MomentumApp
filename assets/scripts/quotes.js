@@ -75,5 +75,7 @@ function setRandomQuote() {
     quotePersonSpan.textContent = `${randomQuote.person}`;
 }
 
+const quoteShuffle = document.querySelector("#quote-shuffle");
+quoteShuffle.addEventListener("click", setRandomQuote);
+
 setRandomQuote();
-console.log(localQuotesArray)
