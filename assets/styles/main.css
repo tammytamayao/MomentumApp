@@ -99,7 +99,7 @@ Main Container Grid
 }
 
 .photographer-div,
-.quote-person-div {
+.person-div {
     display: flex;
     align-items: flex-end;
     flex-direction: row;
@@ -110,7 +110,7 @@ Main Container Grid
     justify-content: flex-start;
 }
 
-.quote-person-div {
+.person-div {
     justify-content: center;
 }
 
@@ -124,16 +124,12 @@ Typography
     font-size: 23vh;
 }
 
-.quote-div, 
-.quote-person-div {
+.random-quote{
+    font-size: 1.125rem;
     text-align: center;
 }
 
-.random-quote{
-    font-size: 1.125rem;
-}
-
-.quote-person {
+.person {
     font-size: 0.875rem;
 }
 
@@ -150,7 +146,7 @@ Typography
     font-size: 1rem;
 }
 
-.quote-person,
+.person,
 .photographer,
 .fa-gear,
 .fa-shuffle,
