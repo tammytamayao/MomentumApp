@@ -1,4 +1,4 @@
-const quotes = [
+const defaultQuotes = [
     {
         person: "Oscar Wilde",
         quote: "Be yourself; everyone else is already taken."
@@ -41,7 +41,39 @@ const quotes = [
     }
 ];
 
-const randomQuote = quotes[Math.floor(Math.random() * quotes.length)].quote;
+class Quote {
+    constructor(person, quote) {
+        this.person = person;
+        this.quote = quote;
+    }
+};
 
-const quoteDiv = document.querySelector(".random-quote");
-quoteDiv.textContent = `"${randomQuote}"`;
+const localQuotesArray = JSON.parse(localStorage.getItem('quotes'));
+
+if (!localQuotesArray) {
+    localStorage.setItem('quotes', JSON.stringify(defaultQuotes))
+}
+
+function addQuote() {
+    let quote = prompt("Enter a quote: ");
+    let person = prompt("Enter the person that made that quote: ");
+
+    if (quote && person) {
+        const newQuote = new Quote(person, quote);
+        localQuotesArray.push(newQuote);
+        localStorage.setItem('quotes', JSON.stringify(localQuotesArray));
+    }
+}
+
+function setRandomQuote() {
+    const quotes = JSON.parse(localStorage.getItem('quotes'));
+    const quoteSpan = document.querySelector(".random-quote");
+    const quotePersonSpan = document.querySelector(".quote-person");
+
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    quoteSpan.textContent = `"${randomQuote.quote}"`;
+    quotePersonSpan.textContent = `-${randomQuote.person}`;
+}
+
+setRandomQuote();
+console.log(localQuotesArray)
