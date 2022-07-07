@@ -98,7 +98,7 @@ Main Container Grid
 .photographer-div,
 .quote-person-div {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: row;
     gap: 0.5rem;
 }
@@ -152,7 +152,7 @@ Typography
 .fa-gear,
 .fa-shuffle,
 .todo-button {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgb(220, 220, 220);
 }
 
 

@@ -28,16 +28,11 @@ const images = [
     },
     {
         src: "5.jpg",
-        description: "Salto Grande, Chile",
-        photographer: "Thomos Fuhrmann"
-    },
-    {
-        src: "6.jpg",
         description: "Above Cape Town, South Africa",
         photographer: "Tim Johnson"
     },
     {
-        src: "7.jpg",
+        src: "6.jpg",
         description: "Kalalau, HI, United STates",
         photographer: "Romain Guy"
     }
