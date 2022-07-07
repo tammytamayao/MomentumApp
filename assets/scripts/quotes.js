@@ -72,7 +72,7 @@ function setRandomQuote() {
 
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     quoteSpan.textContent = `"${randomQuote.quote}"`;
-    quotePersonSpan.textContent = `-${randomQuote.person}`;
+    quotePersonSpan.textContent = `${randomQuote.person}`;
 }
 
 setRandomQuote();
