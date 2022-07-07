@@ -95,6 +95,22 @@ Main Container Grid
     margin-bottom: 0.5rem;
 }
 
+.photographer-div,
+.quote-person-div {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.photographer-div {
+    justify-content: flex-start;
+}
+
+.quote-person-div {
+    justify-content: center;
+}
+
 
 /*
 ===================================================================
@@ -122,7 +138,8 @@ Typography
     font-size: 0.8125rem;
 }
 
-.photographer {
+.photographer,
+.photographer-div .fa-shuffle  {
     font-size: 0.6875rem;
 }
 
@@ -133,6 +150,7 @@ Typography
 .quote-person,
 .photographer,
 .fa-gear,
+.fa-shuffle,
 .todo-button {
     color: rgba(255, 255, 255, 0.6);
 }
@@ -148,6 +166,7 @@ Transitions
 }
 
 .fa-gear:hover,
+.fa-shuffle:hover,
 .todo-button:hover {
     color: white;
     cursor: pointer;
