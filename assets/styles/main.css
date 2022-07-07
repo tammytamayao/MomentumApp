@@ -47,6 +47,8 @@ Main Container Grid
     grid-area: clock;
     justify-self: center;
     align-self: center;
+    text-align: center;
+    width: calc(100% - 2.4rem);
 }
 
 .container-focus {
