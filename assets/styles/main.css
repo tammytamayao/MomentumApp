@@ -6,8 +6,6 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     height: 100%;
@@ -24,12 +22,15 @@ body {
     z-index: -1;
 }
 
-.container {
+.main-container {
     display: grid;
     gap: 0.5rem;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 20vh 60vh 20vh;
-    grid-template-areas: "link link weather weather" "settings clock clock todo" "settings quote quote todo";
+    grid-template-rows: 1.5fr 2fr 1fr 0.5fr;
+    grid-template-areas: "link link weather weather" 
+                        "settings clock clock todo" 
+                        "settings focus focus todo" 
+                        "settings quote quote todo";
     width: 100vw;
     height: 100vh;
     justify-content: center;
@@ -43,22 +44,29 @@ body {
     font-size: 20vh;
 }
 
+.container-focus {
+    grid-area: focus;
+    justify-self: center;
+    align-self: center;
+}
+
 .container-settings {
     grid-area: settings;
-    justify-self: flex-start;
-    align-self: flex-end;
+    justify-self: start;
+    align-self: end;
 }
 
 .container-quote {
     grid-area: quote;
     justify-self: center;
-    align-self: space-between;
+    align-self: end;
+    margin: 0.5rem
 }
 
 .container-todo {
     grid-area: todo;
-    justify-self: flex-end;
-    align-self: flex-end;
+    justify-self: end;
+    align-self: end;
 }
 
 .hide {
