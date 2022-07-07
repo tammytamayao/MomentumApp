@@ -70,6 +70,9 @@ Main Container Grid
 
 .container-quote {
     grid-area: quote;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-end;
     justify-self: center;
     align-self: end;
 }
@@ -95,7 +98,7 @@ Main Container Grid
 
 .container-settings,
 .container-quote {
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.8rem;
 }
 
 .photographer-div,
@@ -110,30 +113,46 @@ Main Container Grid
     position: relative;
 }
 
+.quote-person-div {
+    height: 4.5em;
+    width: 48vw;
+}
+
 .desc-photographer-div {
     height: 2em;
     width: 11.5rem;
 }
 
-.desc-div {
+.desc-div,
+.photographer-div,
+.quote-div,
+.person-div {
     position: absolute;
-    top: 20%;
+}
 
+.quote-div {
+    bottom: 10%;
+    transition: bottom 0.3s;
+}
+
+.person-div {
+    left: 50%;
+    bottom: 20%;
+    opacity: 0;
+    transform: translate(-50%);
+    transition: bottom 0.3s, opacity 0.3s;
+}
+
+.desc-div {
+    top: 20%;
     transition: top 0.3s;
 }
 
 
 .photographer-div {
-    position: absolute;
-    justify-content: flex-start;
     opacity: 0;
     bottom: 20%;
-
     transition: bottom 0.3s, opacity 0.3s;
-}
-
-.person-div {
-    justify-content: center;
 }
 
 
@@ -150,6 +169,10 @@ Typography
 .fa-gear {
     font-size: 1.125rem;
     text-align: center;
+}
+
+.random-quote {
+    width: 48vw;
 }
 
 .person {
@@ -196,9 +219,12 @@ Transitions
     cursor: pointer;
 }
 
-.desc-photographer-div:hover > .desc-div,
-.quote-person-div:hover > .quote-div {
+.desc-photographer-div:hover > .desc-div{
     top: 0;
+}
+
+.quote-person-div:hover > .quote-div{
+    bottom: 30%;
 }
 
 .desc-photographer-div:hover > .photographer-div,
