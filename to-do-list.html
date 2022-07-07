@@ -123,21 +123,21 @@
       tempToDoList = JSON.parse(localStorage.getItem('toDoList'));
     }
 
-    var toDoList = [];
+    var toDoList = []; // [ 1:{ text: 'aksdjasd', done: true }]
     if (tempToDoList.length > 0) {
       toDoList = tempToDoList;
-      toDoList.forEach(function(item) {
-        displayList(item);
+      toDoList.forEach(function(item, index) {
+        displayList(item, index);
       })
     }
-
+    // Remove todo
     $('.close').click(function (e) {
       var spans = document.querySelectorAll('.close');
       toDoList.splice(Array.from(spans).indexOf(e.target), 1);
       localStorage.setItem('toDoList', JSON.stringify(toDoList));
     });
 
-//add to-do list item and store it in web browser
+    //add to-do list item and store it in web browser
     function newToDo() {
       var list = document.createElement("li");
       var input = document.getElementById("input").value;
@@ -154,7 +154,6 @@
       label.appendChild(document.createTextNode(input));
       list.appendChild(checkbox);
       list.appendChild(label);
-      console.log(input);
 
       if (input === '') {
         alert("Write what you want to do!");
@@ -171,7 +170,7 @@
       span.className = "close";
       span.appendChild(text);
       list.appendChild(span);
-      toDoList.push(input);
+      toDoList.push({ text: input, done: false });
       localStorage.setItem('toDoList', JSON.stringify(toDoList));
 
       for (i = 0; i < close.length; i++) {
@@ -181,24 +180,28 @@
         }
       }
     }
+    // TODO: Create a function that will change the done status of the todolist;
 
-//display stored list when refreshed
-    function displayList(input) {
+    //display stored list when refreshed
+    function displayList(input, index) {
       var list = document.createElement("li");
-
       var checkbox = document.createElement('input');
       checkbox.type = "checkbox";
-      checkbox.name = "checkbox";
-      checkbox.value = "value";
-      checkbox.id = "checkbox";
+      checkbox.name = "todolist_" + index;
+      checkbox.id = index;
 
       var label = document.createElement('label');
       label.className = "textlabel";
-      label.appendChild(document.createTextNode(input));
+      label.appendChild(document.createTextNode(input.text));
+
+      if (input.done === true) {
+        checkbox.checked = "true";
+      }
+
       list.appendChild(checkbox);
       list.appendChild(label);
-      console.log(input);
-
+     
+      
       if (input === '') {
         alert("Write what you want to do!");
       } else {
