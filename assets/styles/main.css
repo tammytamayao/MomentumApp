@@ -25,15 +25,40 @@ body {
 }
 
 .container {
-    font-size: 23vh;
-    height: 28vh;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 20vh 60vh 20vh;
+    grid-template-areas: "link link weather weather" "settings clock clock todo" "settings quote quote todo";
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
+    align-content: center;
 }
 
-.time {
-    margin: 0 auto;
+.container-clock {
+    grid-area: clock;
+    justify-self: center;
+    align-self: center;
+    font-size: 20vh;
+}
+
+.container-settings {
+    grid-area: settings;
+    justify-self: flex-start;
+    align-self: flex-end;
+}
+
+.container-quote {
+    grid-area: quote;
+    justify-self: center;
+    align-self: space-between;
+}
+
+.container-todo {
+    grid-area: todo;
+    justify-self: flex-end;
+    align-self: flex-end;
 }
 
 .hide {
