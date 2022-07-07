@@ -38,7 +38,7 @@ Main Container Grid
                         "settings quote quote todo" 
                         "settings quote quote todo";
     width: 100vw;
-    height: 98.6vh;
+    height: 100vh;
     justify-content: center;
     align-content: center;
 }
@@ -91,8 +91,9 @@ Main Container Grid
 }
 
 .container-settings,
-.container-todo {
-    margin-bottom: 0.5rem;
+.container-todo,
+.container-quote {
+    margin-bottom: 1.2rem;
 }
 
 .photographer-div,
@@ -179,12 +180,11 @@ Media Queries
 ===================================================================
 */
 @media screen and (max-width: 768px) {
-    
-.main-container {
-    grid-template-areas: "link link weather weather" 
-                        "clock clock clock clock" 
-                        "focus focus focus focus" 
-                        "quote quote quote quote" 
-                        "settings settings todo todo";
-}
+    .main-container {
+        grid-template-areas: "link link weather weather" 
+                            "clock clock clock clock" 
+                            "focus focus focus focus" 
+                            "quote quote quote quote" 
+                            "settings settings todo todo";
+    }
 }
