@@ -112,11 +112,30 @@
       <ul id="ul"></ul>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
   <script>
+    let tempToDoList = [];
+    console.log(localStorage.getItem('toDoList'));
+    if (localStorage.getItem('toDoList') != null) {
+      tempToDoList = JSON.parse(localStorage.getItem('toDoList'));
+    }
 
     var toDoList = [];
 
-    // Create new to-do item when clicking "+" button and append close button
+    if (tempToDoList.length > 0) {
+      toDoList = tempToDoList;
+      toDoList.forEach(function (item) {
+        newToDoV2(item);
+      })
+    }
+
+    $('.close').click(function (e) {
+      var spans = document.querySelectorAll('.close');
+      toDoList.splice(Array.from(spans).indexOf(e.target), 1);
+      localStorage.setItem('toDoList', JSON.stringify(toDoList));
+    });
+
     function newToDo() {
       var list = document.createElement("li");
       var input = document.getElementById("input").value;
@@ -138,7 +157,7 @@
       if (input === '') {
         alert("Write what you want to do!");
       } else {
-        // When Enter key is pressed, newToDo function will run
+
         document.querySelector("form").addEventListener("submit", e => {
           e.preventDefault();
         });
@@ -152,7 +171,7 @@
       span.appendChild(text);
       list.appendChild(span);
       toDoList.push(input);
-      localStorage.setItem('toDoList', toDoList); // set item to local storage
+      localStorage.setItem('toDoList', JSON.stringify(toDoList));
 
       for (i = 0; i < close.length; i++) {
         close[i].onclick = function () {
@@ -162,7 +181,47 @@
       }
     }
 
-    // Click on a close button to hide the current list item
+    function newToDoV2(input) {
+      var list = document.createElement("li");
+
+      var checkbox = document.createElement('input');
+      checkbox.type = "checkbox";
+      checkbox.name = "checkbox";
+      checkbox.value = "value";
+      checkbox.id = "checkbox";
+
+      var label = document.createElement('label');
+      label.className = "textlabel";
+      label.appendChild(document.createTextNode(input));
+      list.appendChild(checkbox);
+      list.appendChild(label);
+      console.log(input);
+
+
+      if (input === '') {
+        alert("Write what you want to do!");
+      } else {
+
+        document.querySelector("form").addEventListener("submit", e => {
+          e.preventDefault();
+        });
+        document.getElementById("ul").appendChild(list);
+      }
+
+      var span = document.createElement("span");
+      var text = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(text);
+      list.appendChild(span);
+
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+          var div = this.parentElement;
+          div.style.display = "none";
+        }
+      }
+    }
+
     var close = document.getElementsByClassName("close");
     var i;
     for (i = 0; i < close.length; i++) {
