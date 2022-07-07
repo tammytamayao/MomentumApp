@@ -12,13 +12,21 @@ function validateEmail(string) {
             let time = null;
             
             if (curHr < 12) {
-                let time = "Good Morning";
+                time = "Good Morning";
             } else if (curHr < 18) {
-                let time = "Good Afternoon";
+                time = "Good Afternoon";
             } else {
-                let time = "Good Evening";
+                time = "Good Evening";
             }
             return time
+  }
+  
+const formSuccess = localStorage.getItem('formSuccess')
+
+  if(formSuccess){
+    document.getElementById('name-section').style.display = 'none';
+    document.getElementById('greeting-section').classList.remove('hide');
+    document.getElementById('greeting').innerHTML = getGreeting() + ', ' + localStorage.getItem('formName');
   }
 
 document.addEventListener(('DOMContentLoaded'), () => {
@@ -43,7 +51,7 @@ document.addEventListener(('DOMContentLoaded'), () => {
             document.getElementById('name-section').style.display = 'none';
             document.getElementById('nickname').innerHTML = inputName;
             document.getElementById("email-section").classList.remove("hide");
-                
+            localStorage.setItem('formName', inputName); // set item to local storage    
         } 
         nameError.innerHTML = '';
     }, false);
@@ -71,7 +79,7 @@ document.addEventListener(('DOMContentLoaded'), () => {
             }
             document.getElementById('email-section').style.display = 'none';
             document.getElementById('password-section').classList.remove('hide');
-            
+            localStorage.setItem('formEmail', inputEmail); // set item to local storage    
         } 
         emailError.innerHTML = '';
     }, false);
@@ -101,7 +109,7 @@ document.addEventListener(('DOMContentLoaded'), () => {
             } 
             document.getElementById('password-section').style.display = 'none';
             document.getElementById('greeting-section').classList.remove('hide');
-
+            localStorage.setItem('formSuccess', true); // set item to local storage    
             
 
             let inputName = document.getElementById('name').value;
