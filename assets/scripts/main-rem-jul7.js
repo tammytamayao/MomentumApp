@@ -1,34 +1,44 @@
 function validateEmail(string) {
     // The regular expression used by [type="email"]
-  let regex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)$/;
+    let regex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)$/;
 
-  // Test the string against the regular expression
-  return regex.test(string);
-  }
+    // Test the string against the regular expression
+    return regex.test(string);
+}
 
-  function getGreeting(){
+function getGreeting() {
     let today = new Date()
-            let curHr = today.getHours()
-            let time = null;
-            
-            if (curHr < 12) {
-                time = "Good Morning";
-            } else if (curHr < 18) {
-                time = "Good Afternoon";
-            } else {
-                time = "Good Evening";
-            }
-            return time
-  }
-  
-const formSuccess = localStorage.getItem('formSuccess')
+    let curHr = today.getHours()
+    let time = null;
 
-  if(formSuccess){
-    document.getElementById('name-section').style.display = 'none';
-    document.getElementById('greeting-section').classList.remove('hide');
-    document.getElementById('greeting').innerHTML = getGreeting() + ', ' + localStorage.getItem('formName');
-  }
+    if (curHr < 12) {
+        time = "Good Morning";
+    } else if (curHr < 18) {
+        time = "Good Afternoon";
+    } else {
+        time = "Good Evening";
+    }
+    return time
+}
 
+function homePage() {
+    const formSuccess = localStorage.getItem('formSuccess')
+
+    if (formSuccess) {
+        // document.getElementById('name-section').style.display = 'none';
+        document.getElementById('greeting-section').classList.remove('hide');
+        document.getElementById('greeting').innerHTML = getGreeting() + ', ' + localStorage.getItem('formName') + '.';
+        document.getElementById('time-section').classList.remove('hide');
+    } else if (typeof localStorage.formName !== 'undefined' && typeof localStorage.formEmail === 'undefined') {
+        document.getElementById("email-section").classList.remove("hide");
+        document.getElementById('nickname').innerHTML = localStorage.formName;
+     } else if (typeof localStorage.formName !== 'undefined' && typeof localStorage.formEmail !== 'undefined') {
+        document.getElementById("password-section").classList.remove("hide");
+     } else {
+        document.getElementById("name-section").classList.remove("hide");
+    } 
+}
+homePage();
 document.addEventListener(('DOMContentLoaded'), () => {
     // console.log("Ready");
 
@@ -43,16 +53,16 @@ document.addEventListener(('DOMContentLoaded'), () => {
             console.log(e.target.id);
 
             let inputName = name.value;
-            if (inputName.length <= 0){
+            if (inputName.length <= 0) {
                 // console.log('please enter name');
                 nameError.innerHTML = 'please enter name';
                 return;
-            } 
+            }
             document.getElementById('name-section').style.display = 'none';
             document.getElementById('nickname').innerHTML = inputName;
             document.getElementById("email-section").classList.remove("hide");
             localStorage.setItem('formName', inputName); // set item to local storage    
-        } 
+        }
         nameError.innerHTML = '';
     }, false);
 
@@ -67,7 +77,7 @@ document.addEventListener(('DOMContentLoaded'), () => {
             console.log(e.target.id);
 
             let inputEmail = email.value;
-            if (inputEmail.length <= 0){
+            if (inputEmail.length <= 0) {
                 // console.log('please enter email');
                 emailError.innerHTML = 'please enter email';
                 return;
@@ -80,7 +90,7 @@ document.addEventListener(('DOMContentLoaded'), () => {
             document.getElementById('email-section').style.display = 'none';
             document.getElementById('password-section').classList.remove('hide');
             localStorage.setItem('formEmail', inputEmail); // set item to local storage    
-        } 
+        }
         emailError.innerHTML = '';
     }, false);
 
@@ -95,29 +105,29 @@ document.addEventListener(('DOMContentLoaded'), () => {
             console.log(e.target.id);
 
             let inputPassword = password.value;
-            if (inputPassword.length <= 0){
+            if (inputPassword.length <= 0) {
                 // console.log('please enter password');
                 passwordError.innerHTML = 'please enter password';
                 return;
-            } 
+            }
             console.log(inputPassword.length)
 
-            if (inputPassword.length < 6){
+            if (inputPassword.length < 6) {
                 console.log('please enter password');
                 passwordError.innerHTML = 'please enter atleast 6 characters long';
                 return;
-            } 
+            }
             document.getElementById('password-section').style.display = 'none';
             document.getElementById('greeting-section').classList.remove('hide');
+            document.getElementById('time-section').classList.remove('hide');
             localStorage.setItem('formSuccess', true); // set item to local storage    
-            
+
 
             let inputName = document.getElementById('name').value;
-            document.getElementById('greeting').innerHTML = getGreeting() + ', ' + inputName;
+            document.getElementById('greeting').innerHTML = getGreeting() + ', ' + inputName + '.';
 
-            
-        } 
+
+        }
         passwordError.innerHTML = '';
     }, false);
 }, false);
-
