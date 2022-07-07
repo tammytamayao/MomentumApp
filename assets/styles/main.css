@@ -59,6 +59,11 @@ Main Container Grid
     grid-area: settings;
     justify-self: start;
     align-self: end;
+
+    display: flex;
+    gap: 1.2rem;
+    flex-direction: row;
+    align-items: center;
 }
 
 .container-quote {
@@ -123,7 +128,8 @@ Typography
 }
 
 .quote-person,
-.photographer {
+.photographer,
+.fa-gear {
     color: rgba(255,255,255,0.8);
 }
 
