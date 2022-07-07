@@ -33,7 +33,7 @@ const images = [
     },
     {
         src: "6.jpg",
-        description: "Kalalau, HI, United STates",
+        description: "Kalalau, HI, United States",
         photographer: "Romain Guy"
     }
 ];
