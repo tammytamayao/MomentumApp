@@ -110,7 +110,7 @@ Typography
     text-align: center;
 }
 
-.random-quote {
+.random-quote{
     font-size: 1.125rem;
 }
 
@@ -126,10 +126,15 @@ Typography
     font-size: 0.6875rem;
 }
 
+.todo-button {
+    font-size: 1rem;
+}
+
 .quote-person,
 .photographer,
-.fa-gear {
-    color: rgba(255,255,255,0.8);
+.fa-gear,
+.todo-button {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 
@@ -140,6 +145,12 @@ Transitions
 */
 .hide {
     display: none;
+}
+
+.fa-gear:hover,
+.todo-button:hover {
+    color: white;
+    cursor: pointer;
 }
 
 
