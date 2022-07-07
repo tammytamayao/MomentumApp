@@ -56,11 +56,12 @@ focus.addEventListener("keypress", function (e){
             focusError.innerHTML = "please enter focus";
             return;
         }
-    
-        document.getElementById('myFocus').classList.remove('hide');
+        document.querySelector('.mainFocus').classList.remove('hide');
+        document.querySelector('.myFocus').classList.add('hide');
     }
 })
 
+/*
 const focus = document.getElementById("focus");
 
 focus.addEventListener("keypress", function (e){
@@ -75,7 +76,7 @@ focus.addEventListener("keypress", function (e){
         alert(inputFocus);
     }
 })
-
+*/
 //checkbox
 
 checkbox = document.getElementById("focusCheck");
