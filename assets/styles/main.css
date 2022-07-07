@@ -166,7 +166,9 @@ Transitions
 
 .fa-gear:hover,
 .fa-shuffle:hover,
-.todo-button:hover {
+.todo-button:hover,
+.person:hover,
+.photographer:hover {
     color: white;
     cursor: pointer;
 }
