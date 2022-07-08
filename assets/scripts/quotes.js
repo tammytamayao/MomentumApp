@@ -79,3 +79,21 @@ const quoteShuffle = document.querySelector("#quote-shuffle");
 quoteShuffle.addEventListener("click", setRandomQuote);
 
 setRandomQuote();
+
+const quoteList = document.querySelector(".quote-list");
+for(let i = 0; i < localQuotesArray.length; i++) {
+    quoteItem = document.createElement("li");
+    quoteItem.classList.add("quote-item");
+
+    quoteBody = document.createElement("span");
+    quoteBody.classList.add("quote-body");
+    quoteBody.textContent = `"${localQuotesArray[i].quote}"`;
+
+    quotePerson = document.createElement("span");
+    quotePerson.classList.add("quote-person");
+    quotePerson.textContent = `${localQuotesArray[i].person}`;
+
+    quoteItem.appendChild(quoteBody);
+    quoteItem.appendChild(quotePerson);
+    quoteList.appendChild(quoteItem);
+}
