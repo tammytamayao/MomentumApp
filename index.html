@@ -50,7 +50,7 @@
                             <header class="settings-header">
                                 <h3 id="quotes-header">Quotes</h3>
                                 <p class="settings-desc">A daily reminder for inspiration and growth</p>
-                                <button id="addqquote">+ Add Quote</button>
+                                <button id="add-quote">+ Add Quote</button>
                             </header>
                             <ul class="quote-list"></ul>
                         </div>
@@ -80,6 +80,27 @@
         <div class="container-todo">
             <span class="todo-button">Todo</span>
         </div>
+        <div id="add-quote-popup" class="popup hide">
+            <div id="add-quote-close" class="close-button">&#10006</div>
+            <header class="popup-header">
+                <h3 id="add-quote-header">Custom Quotes</h3>
+                <p class="popup-desc">Add your own collection of quotes to Momentum.</p>
+            </header>
+            <form class="popup-form" onsubmit="addQuote(); this.reset(); return false">
+                <div class="form-pair-div">
+                    <label for="new-quote" class="popup-label">Enter a new quote:</label>
+                    <textarea name="new-quote" id="new-quote" class="input-form" maxlength="110" required></textarea>
+                </div>
+                <div class="form-pair-div">
+                    <label for="new-person-quote" class="popup-label">Enter the person that said the quote:<br>(If you don't know, you can just leave it blank)</label>
+                    <input type="text" name="new-person-quote" class="input-form" id="new-person-quote">
+                </div>
+                <div class="form-button">
+                    <input type="submit" value="Add New Quote">
+                </div>
+            </form>
+        </div>
+        <div class="overlay hide"></div>
     </div>
 
     <!-- <h1>Momentum App</h1>
