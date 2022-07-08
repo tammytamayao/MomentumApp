@@ -20,8 +20,40 @@
 
             </div>
         </div>
-        <div class="focus">
+        <div class="container-focus">
+            <div class="myFocus">
+                <div class="myFocusQuestion">
+                    <label>What is your main focus for today?</label><br>
+                </div>
+                <div class="myFocusInput">
+                    <input type="text" id="focus" class="classFocus" style="width: 445px;">
+                </div>
+            </div>
+            
+            <div class="mainFocus hide">            
+                <div class="today">TODAY</div>
+                
+                <div class="finalFocus">
+                    <label class="checkboxContainer">
+                        <input type="checkbox" id="focusCheck" class="classFocusCheck">
+                        <span class="checkmark" style="border:solid 2px white"></span>
+                    </label>
+                    <div id="getFocus">
+                        <p class="focusOutput" id="textFocusOutput"></p>
+                    </div>
 
+                    <div class="dotsContainer" onclick="focusOptionsFunction()"><div class = "dots">
+                        ...
+                        <span class="popupText" id="focusPopup">Edit<br>
+                        Clear
+                        </span>
+                    </div></div>
+                </div>
+            </div>
+        
+            <div class="encouragingWords hide">
+                <p id="words"></p>
+            </div>
         </div>
         <div class="container-quote">
             <div class="quote-person-div">
@@ -130,6 +162,7 @@
 
     <script src="assets/scripts/index.js"></script>
     <script src="assets/scripts/time.js"></script>
+    <script src="assets/scripts/focus.js"></script>
     <script src="assets/scripts/background.js"></script>
     <script src="assets/scripts/quotes.js"></script>
     <script src="assets/scripts/settings.js"></script>
