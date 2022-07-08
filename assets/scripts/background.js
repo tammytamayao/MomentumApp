@@ -1,16 +1,59 @@
 const body = document.querySelector("body");
 
-const images = ["antelope-canyon_page-az-usa.jpg",
-                "banff-national-park_ab-canada.jpg",
-                "braies-trentino_alto-adige-italy.jpg", 
-                "kras_primorsko-goranska županija_croatia.jpg",
-                "moraine-lake_ab-canada.jpg", 
-                "new-zealand.jpg",
-                "waterfalls-iceland.jpg"];
+const images = [
+    {
+        src: "0.jpg",
+        description: "Poon Hill, Nepal",
+        photographer: "Joffrey Persia"
+    },
+    {
+        src: "1.jpg",
+        description: "Lake Brienz, Switzerland",
+        photographer: "Andreas Gucklhorn"
+    },
+    {
+        src: "2.jpg",
+        description: "Alhorines Valley, Spain",
+        photographer: "Pepe Gandia"
+    },
+    {
+        src: "3.jpg",
+        description: "Wallowa, OR, United States",
+        photographer: "Cody Wilson"
+    },
+    {
+        src: "4.jpg",
+        description: "BlankenBurg, Germany",
+        photographer: "Olli Henze"
+    },
+    {
+        src: "5.jpg",
+        description: "Above Cape Town, South Africa",
+        photographer: "Tim Johnson"
+    },
+    {
+        src: "6.jpg",
+        description: "Kalalau, HI, United States",
+        photographer: "Romain Guy"
+    }
+];
 
-const randomImage = images[(Math.floor(Math.random() * images.length))];
+const description = document.querySelector(".img-desc");
+const photographer = document.querySelector(".photographer");
 const img = document.createElement("img");
-img.className = "bgImage";
-img.src = `assets/images/${randomImage}`;
-
 body.appendChild(img);
+
+function setRandomBackground() {
+    const randomImage = images[(Math.floor(Math.random() * images.length))];
+    
+    img.className = "bgImage";
+    img.src = `assets/images/${randomImage.src}`;
+    
+    description.textContent = randomImage.description;
+    photographer.textContent = randomImage.photographer;
+};
+
+const imgShuffle = document.querySelector("#img-shuffle");
+imgShuffle.addEventListener("click", setRandomBackground);
+
+setRandomBackground();

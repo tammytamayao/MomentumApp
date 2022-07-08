@@ -6,8 +6,6 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     height: 100%;
@@ -19,23 +17,235 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     min-height: 100vh;
-    min-width: 150vh;
-    max-width: 100vw;
+    min-width: 100vw;
+    max-width: 150vh;
     z-index: -1;
 }
 
-.container {
-    font-size: 23vh;
-    height: 28vh;
-    display: flex;
-    flex-direction: row;
+/*
+===================================================================
+Main Container Grid
+===================================================================
+*/
+.main-container {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1.5fr 2fr 0.75fr 0.375fr 0.375fr;
+    grid-template-areas: "link link weather weather" 
+                        "clock clock clock clock" 
+                        "focus focus focus focus" 
+                        "settings quote quote todo" 
+                        "settings quote quote todo";
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
+    align-content: center;
 }
 
-.time {
-    margin: 0 auto;
+.container-clock {
+    grid-area: clock;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    width: calc(100% - 2.4rem);
 }
 
+.container-focus {
+    grid-area: focus;
+    justify-self: center;
+    align-self: center;
+}
+
+.container-settings {
+    grid-area: settings;
+    justify-self: start;
+    align-self: end;
+
+    display: flex;
+    gap: 1.2rem;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container-quote {
+    grid-area: quote;
+    display: flex;
+    gap: 1.2rem;
+    flex-direction: row;
+    align-content: flex-end;
+    justify-self: center;
+    align-self: end;
+}
+
+.container-todo {
+    grid-area: todo;
+    justify-self: end;
+    align-self: end;
+    margin-bottom: 1.2rem;
+}
+
+.container-clock,
+.container-weather,
+.container-todo {
+    margin-right: 1.2rem;
+}
+
+.container-clock,
+.container-link,
+.container-settings {
+    margin-left: 1.2rem;
+}
+
+.container-settings,
+.container-quote {
+    margin-bottom: 0.8rem;
+}
+
+.photographer-div,
+.person-div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quote-person-div,
+.desc-photographer-div {
+    position: relative;
+}
+
+.quote-person-div {
+    height: 4.5em;
+    width: 48vw;
+}
+
+.desc-photographer-div {
+    height: 2em;
+    width: 11.5rem;
+}
+
+.desc-div,
+.photographer-div,
+.quote-div,
+.person-div {
+    position: absolute;
+}
+
+.quote-div {
+    bottom: 10%;
+    transition: bottom 0.3s;
+}
+
+.person-div {
+    left: 50%;
+    bottom: 20%;
+    opacity: 0;
+    transform: translate(-50%);
+    transition: bottom 0.3s, opacity 0.3s;
+}
+
+.desc-div {
+    top: 20%;
+    transition: top 0.3s;
+}
+
+
+.photographer-div {
+    opacity: 0;
+    bottom: 20%;
+    transition: bottom 0.3s, opacity 0.3s;
+}
+
+
+/*
+===================================================================
+Typography
+===================================================================
+*/
+.clock {
+    font-size: 23vh;
+}
+
+.random-quote,
+.fa-gear {
+    font-size: 1.125rem;
+    text-align: center;
+}
+
+.random-quote {
+    width: 48vw;
+}
+
+.person {
+    font-size: 0.875rem;
+}
+
+.img-desc {
+    font-size: 0.8125rem;
+}
+
+.photographer,
+.photographer-div .fa-shuffle  {
+    font-size: 0.6875rem;
+}
+
+.todo-button {
+    font-size: 1rem;
+}
+
+.person,
+.photographer,
+.fa-gear,
+.fa-shuffle,
+.todo-button {
+    color: rgb(210, 210, 210);
+}
+
+
+/*
+===================================================================
+Transitions
+===================================================================
+*/
 .hide {
     display: none;
+}
+
+.fa-gear:hover,
+.fa-shuffle:hover,
+.todo-button:hover,
+.person:hover,
+.photographer:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.desc-photographer-div:hover > .desc-div{
+    top: 0;
+}
+
+.quote-person-div:hover > .quote-div{
+    bottom: 30%;
+}
+
+.desc-photographer-div:hover > .photographer-div,
+.quote-person-div:hover > .person-div {
+    bottom: 0;
+    opacity: 1;
+}
+
+
+/*
+===================================================================
+Media Queries
+===================================================================
+*/
+@media screen and (max-width: 768px) {
+    .main-container {
+        grid-template-areas: "link link weather weather" 
+                            "clock clock clock clock" 
+                            "focus focus focus focus" 
+                            "quote quote quote quote" 
+                            "settings settings todo todo";
+    }
 }

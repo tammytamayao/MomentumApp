@@ -6,18 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/styles/main.css">
+    <script src="https://kit.fontawesome.com/ea79cbf8c3.js" crossorigin="anonymous"></script>
     <title>Momentum App</title>
-    <link rel="stylesheet" href="/assets/styles/main.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="time">
-            <label id="myTime"></label>
+    <div class="main-container">
+        <div class="container-clock">
+            <div class="clock">
+                <label id="myTime"></label>
+            </div>
+            <div class="greeting">
+
+            </div>
+        </div>
+        <div class="focus">
+
+        </div>
+        <div class="container-quote">
+            <div class="quote-person-div">
+                <div class="quote-div">
+                    <p class="random-quote"></span>
+                </div>
+                <div class="person-div">
+                    <span class="person"></span>
+                    <i id="quote-shuffle" class="fa-solid fa-shuffle"></i>
+                </div>
+            </div>
+        </div>
+        <div class="container-settings">
+            <i class="fa-solid fa-gear"></i>
+            <div class="desc-photographer-div">
+                <div class="desc-div">
+                    <span class="img-desc"></span>
+                </div>
+                <div class="photographer-div">
+                    <span class="photographer"></span>
+                    <i id="img-shuffle" class="fa-solid fa-shuffle"></i>
+                </div>
+            </div>
+        </div>
+        <div class="container-todo">
+            <span class="todo-button">Todo</span>
         </div>
     </div>
 
-    <h1>Momentum App</h1>
+    <!-- <h1>Momentum App</h1>
 
     <section id="name-section">
         <label for="name">What is your name?</label>
@@ -38,13 +72,14 @@
         <input type="password" name="password" id="password">
 
         <p id="password-error"></p>
-    </section>
+    </section> -->
 
 
 
-    <script src="/assets/scripts/index.js"></script>
+    <script src="assets/scripts/index.js"></script>
     <script src="assets/scripts/time.js"></script>
     <script src="assets/scripts/background.js"></script>
+    <script src="assets/scripts/quotes.js"></script>
 </body>
 
 </html>
