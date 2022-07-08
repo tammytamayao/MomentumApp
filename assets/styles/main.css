@@ -172,15 +172,41 @@ Settings
     bottom: 2.3rem;
 }
 
+.settings-popup .triangle-down {
+    margin-left: 0.9rem;
+}
+
 .settings-div {
     background: rgba(255, 255, 255, 0.96);
     border-radius: 5px;
     height: 520px;
     min-width: 720px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "settings-navbar settings-view";
 }
 
-.settings-popup .triangle-down {
-    margin-left: 0.9rem;
+.settings-navbar {
+    grid-area: settings-navbar;
+    padding-top: 23px;
+    border-right: 1px solid rgba(210, 210, 210, 0.96);
+}
+
+.nav-item {
+    color: gray;
+    font-size: 1.1em;
+    width: 100%;
+    padding: 5px 21px;
+}
+
+.nav-item:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.nav-item-active {
+    color: black;
+    font-weight: 600;
 }
 
 /*
