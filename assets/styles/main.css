@@ -180,7 +180,7 @@ Settings
     background: rgba(255, 255, 255, 0.96);
     border-radius: 5px;
     height: 520px;
-    min-width: 720px;
+    max-width: 720px;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-areas: "settings-navbar settings-view";
@@ -207,6 +207,73 @@ Settings
 .nav-item-active {
     color: black;
     font-weight: 600;
+}
+
+.settings-view {
+    overflow-y: scroll;
+}
+
+.settings-view-item {
+    padding: 30px;
+}
+
+.settings-header,
+.quote-item {
+    border-bottom: 1px solid rgba(210, 210, 210, 0.96);
+}
+
+.settings-header h3 {
+    color: black;
+    font-size: 1.375rem;
+}
+
+.settings-desc {
+    color: gray;
+    font-size: 0.875rem;
+    margin-bottom: 21px;
+}
+
+button {
+    background: hsl(208, 25%, 32%);
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 12px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.8125em;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+button:active {
+    opacity: 0.6;
+}
+
+.quote-list {
+    list-style-type: none;
+    width: inherit;
+}
+
+.quote-item {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    text-align: left;
+    padding: 11px 0;
+}
+
+.quote-body {
+    color: black;
+    font-size: 1em;
+}
+
+.quote-person {
+    color: gray;
+    font-size: 0.9em;
+    margin-left: 5px;
 }
 
 /*
