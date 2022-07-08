@@ -35,11 +35,8 @@ checkbox.addEventListener("change", e => {
         encouragingW.innerHTML = randomWords;
         document.querySelector('.encouragingWords').classList.remove('hide');
         textFocusOutput.style.textDecoration="line-through";
+    } else{
+        document.querySelector('.encouragingWords').classList.toggle('hide');
+        textFocusOutput.style.textDecoration="none";
     }
 })
-
-// When the user clicks on <div>, open the popup
-function focusOptionsFunction() {
-    var popup = document.getElementById("focusPopup");
-    popup.classList.toggle("show");
-  }
