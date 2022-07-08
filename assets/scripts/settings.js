@@ -9,16 +9,16 @@ function toggleSettings() {
 settingsBtn.addEventListener("click", toggleSettings);
 
 const navItems = document.querySelectorAll(".nav-item");
-const settingsViewItems = document.querySelectorAll(".settings-view-items");
+const settingsViewItems = document.querySelectorAll(".settings-view-item");
 let currentToggled = 0;
 
 function toggleNavView(i) {
     if(i !== currentToggled) {
         navItems[currentToggled].classList.toggle("nav-item-active");
-        // settingsViewItems[currentToggled].classList.toggle("settings-view-active");
+        settingsViewItems[currentToggled].classList.toggle("hide");
         
         navItems[i].classList.toggle("nav-item-active");
-        // settingsViewItems[idx].classList.toggle("settings-view-active");
+        settingsViewItems[i].classList.toggle("hide");
     
         currentToggled = i;
     }
