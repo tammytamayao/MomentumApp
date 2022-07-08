@@ -56,6 +56,9 @@ Main Container Grid
     justify-self: center;
     align-self: flex-start;
     width: calc(100% - 2.4rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container-settings {
@@ -120,6 +123,10 @@ Focus
     justify-content: center;
 }
 
+.myFocus {
+    width: 540px;
+}
+
 .myFocusQuestion {
     font-size: 2.1875em;
 }
@@ -154,7 +161,24 @@ Focus
     width: 100%;
 }
 
+.focus-left,
+.focus-right {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.focus-left {
+    justify-content: flex-end;
+}
+
+.focus-right {
+    justify-content: flex-start;
+}
+
 .finalFocus {
+    display: flex;
     width: 100%;
 }
 
@@ -162,41 +186,38 @@ Focus
     width: 15px;
     box-shadow: none;
     margin-right: 8px;
+    visibility: hidden;
 }
 
 .checkboxContainer {
-    display: block;
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 12px;
     font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     opacity: 0;
+    height: 28px;
+    width: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 12px;
+    margin-right: 4px;
 }
 
 .checkboxContainer input {
     position: absolute;
-    opacity: 0;
     height: 0;
     width: 0;
 }
 
-.checkboxContainer:hover {
-    opacity: 1;
-}
-
 .checkmark {
-    position: absolute;
-    top: 12px;
-    left: 0;
-    height: 17px;
-    width: 17px;
+    height: 18px;
+    width: 18px;
     background-color: transparent;
+    border: solid 2px white;
     border-radius: 3px;
-    cursor: pointer;
 }
 
 .checkmark:after {
@@ -214,9 +235,9 @@ Focus
     position: absolute;
     width: 5px;
     height: 14px;
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
-    top: 40%;
+    border-right: 3.5px solid white;
+    border-bottom: 3.5px solid white;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%) rotateZ(40deg);
 }
@@ -228,38 +249,35 @@ Focus
 }
 
 .dots {
-    font-size: 3vh;
-    height: 4vh;
-    color: white;
+    font-size: 20px;
     font-weight: 700;
 }
 
 .dotsContainer {
-    margin-top: 5px;
-    padding: 5px;
-    font-size: 2.5vh;
-    height: 5vh;
-    width: 5vh;
-    color: white;
-    background-color: transparent;
-    border: none;
+    height: 28px;
+    width: 28px;
+    color: rgba(210, 210, 210, 0.8);
+    border-radius: 50px;
     opacity: 0;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-focus:hover .dotsContainer,
+.container-focus:hover .checkboxContainer {
+    cursor: pointer;
+    opacity: 1;
 }
 
 .dotsContainer:hover {
-    background-color: lightgray;
-    opacity: 0.50;
-    transition: 0.5s;
-    border-radius: 50%;
+    color: white;
+    background: rgba(210, 210, 210, 0.2);
 }
 
 /*
 /* Popup container */
-.dotsContainer {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-  }
   
   /* The actual popup (appears on top) */
   .dotsContainer .popupText {
