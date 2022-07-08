@@ -102,6 +102,11 @@ Main Container Grid
     margin-bottom: 0.8rem;
 }
 
+/*
+===================================================================
+Quote and Image Description
+===================================================================
+*/
 .photographer-div,
 .person-div {
     display: flex;
@@ -156,6 +161,59 @@ Main Container Grid
     transition: bottom 0.3s, opacity 0.3s;
 }
 
+/*
+===================================================================
+Settings
+===================================================================
+*/
+.settings-popup {
+    position: absolute;
+    left: 0.5rem;
+    bottom: 2.3rem;
+}
+
+.settings-div {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 5px;
+    height: 520px;
+    min-width: 720px;
+}
+
+.settings-popup .triangle-down {
+    margin-left: 0.9rem;
+}
+
+/*
+===================================================================
+Settings
+===================================================================
+*/
+.active {
+    color: white !important;
+}
+
+/*
+===================================================================
+Popup triangles
+===================================================================
+*/
+.triangle-down,
+.triangle-up {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    width: 7px;
+    height: 7px;
+}
+
+.triangle-down {
+    border-bottom: 7px solid transparent;
+    border-top: 7px solid rgba(255, 255, 255, 0.96);
+}
+
+.triangle-up {
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid rgba(255, 255, 255, 0.96);
+}
 
 /*
 ===================================================================
