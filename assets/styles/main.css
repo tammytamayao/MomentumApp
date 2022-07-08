@@ -68,15 +68,24 @@ input {
 
 .myFocusInput {
     font-size: 5vh;
-    height: 5vh;
+    height: 50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 15px;
+    line-height: 50px;
+    /*background-color: pink;*/
+}
+
+.classFocus {
+    text-align: center;
+    font-weight: 550;
+    line-height: 50px;
 }
 
 .myFocusQuestion {
     font-size: 5vh;
-    height: 5vh;
+    height: 7vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -93,26 +102,154 @@ input {
 
 .finalFocus {
     font-size: 5vh;
-    height: 5vh;
+    height: 7vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 20px;
+    /*background-color: pink;*/
+}
+
+.classFocusCheck {
+    width: 15px;
+    /*border-color: lightpink;*/
+    box-shadow: none;
+    margin-right: 8px;
+}
+
+.checkboxContainer {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkboxContainer input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    background-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkboxContainer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkboxContainer .checkmark:after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 14px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(40deg);
+}
+
+/*
+.checkboxContainer {
+    display: none;
+}
+
+
+.finalFocus:hover + .checkboxContainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.finalFocus:hover + .checkboxContainer input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.finalFocus:hover + .checkmark {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    background-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.finalFocus:hover + .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.finalFocus:hover + .checkboxContainer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.finalFocus:hover + .checkboxContainer .checkmark:after {
+    left: 5px;
+    top: 3px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    border-width: 0 3px 8px 0
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+*/
+
+.focusOutput {
+    margin-top: 5px;
+    margin-right: 10px;
 }
 
 .dots {
-    font-size: 2.5vh;
-    height: 8vh;
+    font-size: 3vh;
+    height: 4vh;
     color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    font-weight: 700;
 }
 
 .dotsContainer {
+    margin-top: 5px;
     padding: 5px;
     font-size: 2.5vh;
-    height: 25px;
-    width: 25px;
+    height: 5vh;
+    width: 5vh;
     color: white;
     display: flex;
     flex-direction: row;
@@ -125,4 +262,66 @@ input {
     background-color: lightgray;
     opacity: 0.50;
     transition: 0.5s;
+    border-radius: 50%;
+}
+
+/* Popup container */
+.dotsContainer {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  /* The actual popup (appears on top) */
+  .dotsContainer .popupText {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .dotsContainer .popupText::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .dotsContainer .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+.encouragingWords {
+    font-size: 2.5vh;
+    height: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
