@@ -107,17 +107,13 @@ Main Container Grid
 Focus
 ===================================================================
 */
-input {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 2px solid white;
-}
-
-#focus {
-    font-size: 5vh;
-    color: white;
-    height: 5vh;
+.myFocusInput,
+.myFocusQuestion,
+.today,
+.finalFocus,
+.dots,
+.dotsContainer,
+.encouragingWords {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -125,50 +121,40 @@ input {
 
 .myFocusQuestion {
     font-size: 2.1875em;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 .myFocusInput {
-    font-size: 5vh;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 15px;
-    line-height: 50px;
-    /*background-color: pink;*/
+    width: 100%;
+    padding-top: 4px;
 }
 
 .classFocus {
+    background: transparent;
+    color: white;
     text-align: center;
-    font-weight: 550;
-    line-height: 50px;
+    font-size: 2.25em;
+    font-weight: 500;
+    line-height: 1.2;
+    border: 0;
+    outline: 0;
+    border-bottom: 1.6px solid white;
+    width: 100%;
 }
 
 .today {
     font-size: 2.5vh;
     height: 2.5vh;
     font-weight: bold;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 .finalFocus {
     font-size: 5vh;
     height: 7vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     margin: 20px;
-    /*background-color: pink;*/
 }
 
 .classFocusCheck {
     width: 15px;
-    /*border-color: lightpink;*/
     box-shadow: none;
     margin-right: 8px;
 }
@@ -239,9 +225,6 @@ input {
     font-size: 3vh;
     height: 4vh;
     color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     font-weight: 700;
 }
 
@@ -252,9 +235,6 @@ input {
     height: 5vh;
     width: 5vh;
     color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     background-color: transparent;
     border: none;
     opacity: 0;
@@ -324,9 +304,6 @@ input {
 .encouragingWords {
     font-size: 2.5vh;
     height: 3vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 /*
