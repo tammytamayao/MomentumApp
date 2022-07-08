@@ -54,7 +54,8 @@ Main Container Grid
 .container-focus {
     grid-area: focus;
     justify-self: center;
-    align-self: center;
+    align-self: flex-start;
+    width: calc(100% - 2.4rem);
 }
 
 .container-settings {
@@ -141,11 +142,19 @@ Focus
     width: 100%;
 }
 
+.mainFocus {
+    width: 100%;
+}
+
 .today {
     font-size: 1.3em;
     line-height: 120%;
     font-weight: 600;
     margin: 17px 0 3px 0;
+    width: 100%;
+}
+
+.finalFocus {
     width: 100%;
 }
 
