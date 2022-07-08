@@ -95,6 +95,7 @@ function addQuote() {
         localQuotesArray.push(addedQuote);
         localStorage.setItem('quotes', JSON.stringify(localQuotesArray));
         showQuoteList();
+        toggleAddQuotePopup();
     }
 }
 
