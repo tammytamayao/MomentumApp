@@ -142,15 +142,11 @@ Focus
 }
 
 .today {
-    font-size: 2.5vh;
-    height: 2.5vh;
-    font-weight: bold;
-}
-
-.finalFocus {
-    font-size: 5vh;
-    height: 7vh;
-    margin: 20px;
+    font-size: 1.3em;
+    line-height: 120%;
+    font-weight: 600;
+    margin: 17px 0 3px 0;
+    width: 100%;
 }
 
 .classFocusCheck {
@@ -217,8 +213,9 @@ Focus
 }
 
 .focusOutput {
-    margin-top: 5px;
-    margin-right: 10px;
+    font-size: 2.25rem;
+    max-width: 87.5vw;
+    text-overflow: ellipsis;
 }
 
 .dots {
