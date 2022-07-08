@@ -124,8 +124,7 @@ input {
 }
 
 .myFocusQuestion {
-    font-size: 5vh;
-    height: 5vh;
+    font-size: 2.1875em;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -146,14 +145,6 @@ input {
     text-align: center;
     font-weight: 550;
     line-height: 50px;
-}
-
-.myFocusQuestion {
-    font-size: 5vh;
-    height: 7vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 .today {
