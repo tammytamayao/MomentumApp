@@ -188,7 +188,7 @@ Popup
     z-index: 1;
 }
 
-.close-button {
+.close-btn {
     border-radius: 50px;
     color:gray;
     font-size: 15px;
@@ -202,12 +202,12 @@ Popup
     height: 25px;
 }
 
-.close-button:hover {
+.close-btn:hover {
     cursor: pointer;
     background: rgba(210, 210, 210, 0.6);
 }
 
-.close-button:active {
+.close-btn:active {
     background: rgba(210, 210, 210, 0.4);
 }
 
@@ -270,6 +270,28 @@ textarea {
     height: auto;
     width: 45ch;
     resize: none;
+}
+
+.form-btn {
+    background: hsl(191, 50%, 55%);
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 12px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.form-btn:hover {
+    background: hsl(191, 58%, 60%);
+    cursor: pointer;
+}
+
+.form-btn:active {
+    margin-bottom: 8px;
+    margin-top: 4px;
 }
 
 /*
