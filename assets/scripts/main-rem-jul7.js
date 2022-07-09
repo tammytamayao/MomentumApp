@@ -1,3 +1,6 @@
+homePage();
+setGreeting();
+
 function validateEmail(string) {
     // The regular expression used by [type="email"]
     let regex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)$/;
@@ -36,8 +39,6 @@ function homePage() {
         document.getElementById("name-section").classList.remove("hide");
     } 
 }
-
-homePage();
 
 document.addEventListener(('DOMContentLoaded'), () => {
     // console.log("Ready");
@@ -120,10 +121,12 @@ document.addEventListener(('DOMContentLoaded'), () => {
 
             localStorage.setItem('formSuccess', true); // set item to local storage    
             homePage();
-
-            let inputName = document.getElementById('name').value;
-            document.getElementById('greeting').innerHTML = getGreeting() + ', ' + inputName + '.';
         }
         passwordError.innerHTML = '';
     }, false);
 }, false);
+
+function setGreeting() {
+    const userName = localStorage.getItem('formName');
+    document.getElementById('greeting').innerHTML = getGreeting() + ', ' + userName + '.';
+}

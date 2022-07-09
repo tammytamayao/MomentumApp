@@ -51,6 +51,9 @@ Main Container Grid
     align-self: center;
     text-align: center;
     width: calc(100% - 2.4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .container-focus {
@@ -106,6 +109,15 @@ Main Container Grid
 .container-settings,
 .container-quote {
     margin-bottom: 0.8rem;
+}
+
+/*
+===================================================================
+Clock
+===================================================================
+*/
+.clock {
+    height: fit-content;
 }
 
 /*
@@ -746,11 +758,40 @@ button:active {
     margin-left: 5px;
 }
 
+
+
 /*
 ===================================================================
-Settings
+Transitions
 ===================================================================
 */
+.hide {
+    display: none;
+}
+
+.fa-gear:hover,
+.fa-shuffle:hover,
+.todo-button:hover,
+.person:hover,
+.photographer:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.desc-photographer-div:hover > .desc-div{
+    top: 0;
+}
+
+.quote-person-div:hover > .quote-div{
+    bottom: 30%;
+}
+
+.desc-photographer-div:hover > .photographer-div,
+.quote-person-div:hover > .person-div {
+    bottom: 0;
+    opacity: 1;
+}
+
 .active {
     color: white !important;
 }
@@ -783,8 +824,9 @@ Popup triangles
 Typography
 ===================================================================
 */
-.clock {
-    font-size: 23vh;
+#myTime {
+    font-size: 20vh;
+    line-height: 1;
 }
 
 .random-quote,
@@ -821,40 +863,6 @@ Typography
 .todo-button {
     color: rgb(210, 210, 210);
 }
-
-
-/*
-===================================================================
-Transitions
-===================================================================
-*/
-.hide {
-    display: none;
-}
-
-.fa-gear:hover,
-.fa-shuffle:hover,
-.todo-button:hover,
-.person:hover,
-.photographer:hover {
-    color: white;
-    cursor: pointer;
-}
-
-.desc-photographer-div:hover > .desc-div{
-    top: 0;
-}
-
-.quote-person-div:hover > .quote-div{
-    bottom: 30%;
-}
-
-.desc-photographer-div:hover > .photographer-div,
-.quote-person-div:hover > .person-div {
-    bottom: 0;
-    opacity: 1;
-}
-
 
 /*
 ===================================================================
