@@ -1,4 +1,5 @@
 homePage();
+setInterval(getGreeting, 3600000);
 
 function validateEmail(string) {
     // The regular expression used by [type="email"]
