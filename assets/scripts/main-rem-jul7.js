@@ -25,13 +25,8 @@ function homePage() {
     const formSuccess = localStorage.getItem('formSuccess')
 
     if (formSuccess) {
-        // // document.getElementById('name-section').style.display = 'none';
-        // document.getElementById('greeting-section').classList.remove('hide');
-        // document.getElementById('greeting').innerHTML = getGreeting() + ', ' + localStorage.getItem('formName') + '.';
-        // document.getElementById('time-section').classList.remove('hide');
-        console.log("unhide dapat");
-        document.getElementsByClassName("container").classList.add("hide");
-        document.getElementsByClassName("main-container").classList.remove("hide");
+        document.querySelector(".container").classList.add("hide");
+        document.querySelector(".main-container").classList.remove("hide");
     } else if (typeof localStorage.formName !== 'undefined' && typeof localStorage.formEmail === 'undefined') {
         document.getElementById("email-section").classList.remove("hide");
         document.getElementById('nickname').innerHTML = localStorage.formName;
@@ -41,6 +36,7 @@ function homePage() {
         document.getElementById("name-section").classList.remove("hide");
     } 
 }
+
 homePage();
 
 document.addEventListener(('DOMContentLoaded'), () => {
@@ -121,16 +117,12 @@ document.addEventListener(('DOMContentLoaded'), () => {
                 passwordError.innerHTML = 'please enter atleast 6 characters long';
                 return;
             }
-            document.getElementById('password-section').style.display = 'none';
-            document.getElementById('greeting-section').classList.remove('hide');
-            document.getElementById('time-section').classList.remove('hide');
-            localStorage.setItem('formSuccess', true); // set item to local storage    
 
+            localStorage.setItem('formSuccess', true); // set item to local storage    
+            homePage();
 
             let inputName = document.getElementById('name').value;
             document.getElementById('greeting').innerHTML = getGreeting() + ', ' + inputName + '.';
-
-
         }
         passwordError.innerHTML = '';
     }, false);
