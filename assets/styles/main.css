@@ -159,22 +159,36 @@ Clock
     opacity: 0;
     position: absolute;
     transition: all 0.15s;
+    z-index: 1;
 }
 
 .popupDiv {
     background-color: rgba(255, 255, 255);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 6px 10px;
-    height: 40px;
+    padding: 6px 0;
+    height: auto;
     width: 165px;
     border-radius: 5px;
     font-weight: 400;
 }
 
+.popupOption {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.popupOption:hover {
+    cursor: pointer;
+    background: rgb(235, 235, 235);
+}
+
+#timePopupContainer .popupOption {
+    justify-content: space-between;
+}
+
 .popupText {
+    font-size: 0.875rem;
     margin: 0;
 }
 
@@ -239,14 +253,19 @@ Focus
 */
 #focusPopupContainer {
     opacity: 0;
-    margin-top: 90px;
+    margin-top: 120px;
     margin-left: 10px;
 }
 
-#focusPopupContainer .popupDiv {
-    flex-direction: column;
-    align-items: flex-start;
+#focusPopupContainer .popupOption {
     justify-content: flex-start;
+}
+
+.optionIcon {
+    font-size: 1.1em;
+    color: rgb(130, 130, 130);
+    margin-right: 10px;
+    height: min-content;
 }
 
 .myFocusInput,
@@ -401,55 +420,6 @@ Focus
 .checkboxContainer:hover {
     cursor: pointer;
 }
-
-/*
-/* Popup container */
-  
-  /* The actual popup (appears on top) */
-  .dotsContainer .popupText {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-  }
-  
-  /* Popup arrow */
-  .dotsContainer .popupText::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-  }
-  
-  /* Toggle this class when clicking on the popup container (hide and show the popup) */
-  .dotsContainer .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-  }
-  
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
 
 .encouragingWords {
     font-size: 2.5vh;

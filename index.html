@@ -65,14 +65,16 @@
                     <div class="dotsContainer" id="dotsTimeButton">
                         <i class="fa-solid fa-ellipsis dots"></i>
                     </div>
-                    <div class="popupContainer" id="timePopupContainer">
+                    <div class="popupContainer hide" id="timePopupContainer">
                         <div class="triangle-up"></div>
                         <div class="popupDiv">
-                            <p class="popupText">24-hour clock</p>
-                            <label class="toggle">
-                                <input type="checkbox"/>
-                                <span class="slider round"></span>
-                            </label>
+                            <div class="popupOption">
+                                <p class="popupText">24-hour clock</p>
+                                <label class="toggle">
+                                    <input type="checkbox"/>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,13 +110,22 @@
                     </div>
 
                     <div class="div-right">
-                        <div class="dotsContainer" onclick="focusOptionsFunction()">
+                        <div class="dotsContainer" id="dotsFocusButton">
                             <i class="fa-solid fa-ellipsis dots">
-                                <span class="popupText" id="focusPopup">
-                                    Edit<br>
-                                    Clear
-                                </span>
                             </i>
+                        </div>
+                        <div class="popupContainer hide" id="focusPopupContainer">
+                            <div class="triangle-up"></div>
+                            <div class="popupDiv">
+                                <div class="popupOption">
+                                    <i class="fa-solid fa-pencil optionIcon"></i>
+                                    <p class="popupText">Edit</p>
+                                </div>
+                                <div class="popupOption">
+                                    <div class="optionIcon">&#10006</div>
+                                    <p class="popupText">Clear</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
