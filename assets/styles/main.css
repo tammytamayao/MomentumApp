@@ -31,7 +31,7 @@ input {
     z-index: -1;
 }
 
-.container {
+.timeContainer {
     font-size: 23vh;
     height: 28vh;
     display: flex;
@@ -43,11 +43,135 @@ input {
     margin: 0 auto;
 }
 
+.dotsTime {
+    font-family: Arial;
+    font-size: 5vh;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: 700;
+    opacity: 1;
+}
+
+.dotsContainerTime {
+    margin-top: 80px;
+    margin-right: 90px;
+    padding: 0px;
+    height: 8vh;
+    width: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    opacity: 1;
+}
+
+.dotsContainerTime:hover {
+    background-color: lightgray;
+    opacity: 0.30;
+    transition: 0.5s;
+    border-radius: 50%;
+}
+
+.popupContainer {
+    display: flex;
+    align-items: center;
+    padding: 6px 4px;
+    position: relative;
+    z-index: 0;
+    text-align: left;
+    height: 40px;
+    width: 165px;
+    font-size: 13px;
+    background-color: rgba(255, 255, 255);
+    color: black;
+    border-radius: 5px;
+    font-weight: 400;
+    margin-top: 50px;
+    opacity: 0;
+}
+
+.pointer {
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    opacity: 1;
+    content: "";
+    box-sizing: border-box;
+}
+
+.popupText {
+    margin-left: 10px;
+}
+
+.toggle {
+    position: relative;
+    margin-left: 20px;
+}
+
+.toggle input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle .onoff {
+    color: black;
+    text-align: center;
+}
+
+.slider {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    background-color: #4CBF3F;
+    transition: 0.4s;
+    width: 32px;
+    height: 18px;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    transition: 0.40s;
+    top: 3px;
+    left: 17px;
+}
+
+input:checked + .slider {
+    background-color: darkgray;
+}
+
+input:checked + .slider:before {
+    transform: translateX(-14px);
+}
+
+.slider.round {
+    border-radius: 9px;
+}
+
+.slider.round::before {
+    border-radius: 6px;
+}
+
 .hide {
     display: none;
 }
 
-
+.dotsTime {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
 
 #focus {
     font-size: 5vh;
@@ -211,58 +335,10 @@ input {
     border-radius: 50%;
 }
 
-/*
-/* Popup container */
 .dotsContainer {
     position: relative;
     display: inline-block;
     cursor: pointer;
-  }
-  
-  /* The actual popup (appears on top) */
-  .dotsContainer .popupText {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-  }
-  
-  /* Popup arrow */
-  .dotsContainer .popupText::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-  }
-  
-  /* Toggle this class when clicking on the popup container (hide and show the popup) */
-  .dotsContainer .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-  }
-  
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
   }
 
 .encouragingWords {
@@ -272,3 +348,4 @@ input {
     flex-direction: row;
     justify-content: center;
 }
+  

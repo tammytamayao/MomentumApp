@@ -11,9 +11,20 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="timeContainer">
         <div class="time">
             <label id="myTime"></label>
+        </div>
+        <button class="dotsContainerTime" id="dotsTimeButton"><div class = "dotsTime">
+            ...
+        </div></button>
+        <div class="pointer"></div>
+        <div class="popupContainer" id="timePopupContainer">
+            <p class="popupText">24-hour clock</p>
+            <label class="toggle">
+                <input type="checkbox"/>
+                <span class="slider round"></span>
+            </label>
         </div>
     </div>
 
@@ -59,22 +70,16 @@
             <div id="getFocus">
                 <p class="focusOutput" id="textFocusOutput"></p>
             </div>
-            <!--
-            <button class="dotsContainer"><div class = "dots">
-                ...
-            </div></button>
-            -->
             <div class="dotsContainer" onclick="focusOptionsFunction()"><div class = "dots">
                 ...
                 <span class="popupText" id="focusPopup">Edit<br>
                 Clear
                 </span>
             </div></div>
-            
         </div>
     </div>
 
-    <div class="encouragingWords hide">
+    <div class="encouragingWords" id="encourageWords">
         <p id="words"></p>
     </div>
 

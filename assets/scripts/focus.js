@@ -33,10 +33,10 @@ checkbox.addEventListener("change", e => {
     if(e.target.checked){
         const randomWords = ewords[(Math.floor(Math.random() * ewords.length))];
         encouragingW.innerHTML = randomWords;
-        document.querySelector('.encouragingWords').classList.remove('hide');
+        document.querySelector('.encouragingWords').style. opacity=1;
         textFocusOutput.style.textDecoration="line-through";
     } else{
-        document.querySelector('.encouragingWords').classList.toggle('hide');
+        document.querySelector('.encouragingWords').style. opacity=0;
         textFocusOutput.style.textDecoration="none";
     }
-})
+});
