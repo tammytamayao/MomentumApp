@@ -387,6 +387,7 @@ Focus
     max-width: 87.5vw;
     text-overflow: ellipsis;
     margin: 0;
+    line-height: 1;
 }
 
 .dots {
@@ -423,7 +424,14 @@ Focus
 
 .encouragingWords {
     font-size: 2.5vh;
-    height: 3vh;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#words {
+    margin: 10px 0 0 0;
+    line-height: 1.2;
 }
 
 /*

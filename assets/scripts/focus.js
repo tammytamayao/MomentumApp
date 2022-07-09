@@ -27,17 +27,20 @@ const ewords = ["Nice.",
 //checkbox
 
 checkbox = document.getElementById("focusCheck");
+const ewDiv = document.querySelector(".encouragingWords");
 
 checkbox.addEventListener("change", e => {
 
     if(e.target.checked){
         const randomWords = ewords[(Math.floor(Math.random() * ewords.length))];
         encouragingW.innerHTML = randomWords;
-        document.querySelector('.encouragingWords').classList.remove('hide');
         textFocusOutput.style.textDecoration="line-through";
-    } else{
-        document.querySelector('.encouragingWords').classList.toggle('hide');
-        textFocusOutput.style.textDecoration="none";
+
+        ewDiv.classList.remove('hide');
+        setTimeout(function() {ewDiv.style.opacity = 1}, 0);
+        setTimeout(function() {ewDiv.style.opacity = 0}, 1300);
+    } else {
+        textFocusOutput.style.textDecoration = "none";
     }
 })
 
