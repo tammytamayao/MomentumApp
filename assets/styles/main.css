@@ -175,19 +175,19 @@ Focus
     width: 100%;
 }
 
-.focus-left,
-.focus-right {
+.div-left,
+.div-right {
     flex: 1 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.focus-left {
+.div-left {
     justify-content: flex-end;
 }
 
-.focus-right {
+.div-right {
     justify-content: flex-start;
 }
 
@@ -260,6 +260,7 @@ Focus
     font-size: 2.25rem;
     max-width: 87.5vw;
     text-overflow: ellipsis;
+    margin: 0;
 }
 
 .dots {
