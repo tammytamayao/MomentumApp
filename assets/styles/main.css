@@ -216,8 +216,7 @@ Focus
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 12px;
-    margin-right: 4px;
+    margin: 0 4px 0 12px;
 }
 
 .checkboxContainer input {
