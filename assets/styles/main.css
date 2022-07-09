@@ -474,7 +474,7 @@ Quote and Image Description
 }
 
 .desc-photographer-div {
-    height: 2em;
+    height: 2.2em;
     width: 11.5rem;
 }
 
@@ -499,7 +499,7 @@ Quote and Image Description
 }
 
 .desc-div {
-    top: 20%;
+    top: 15%;
     transition: top 0.3s;
 }
 
