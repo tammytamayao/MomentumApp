@@ -457,70 +457,91 @@ Todo
     height: auto;
     width: 320px;
     color: black;
-    background-color: #fff;
+    background: rgba(255, 255, 255, 0.96);
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    padding: 0;
+    padding: 18px 0;
 }
 
 /*Style Input and title*/
+.todo-input-div {
+    padding: 0 21px;
+}
+
+.todo-input-div form {
+    display: flex;
+}
+
 .header {
     position: relative;
-    padding: 10px 5px 10px 20px;
+    padding: 0 21px;
 }
 
-.header input {
-    width: 200px;
+.todo-input {
+    width: auto;
     height: 30px;
-    font-family: 'Roboto', sans-serif;
+    border: none;
+    flex: 1 0 auto;
+    background: rgba(255, 255, 255, 0.96);
 }
 
-input[type=checkbox]:hover {
+.todo-input:focus {
+    outline: none;
+}
+
+.listItem:hover {
     cursor: pointer;
 }
 
-.header button {
-    width: 30px;
-    height: 30px;
+#title {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin-bottom: 10px;
 }
 
-#title {
-    font-family: 'Roboto', sans-serif;
+.textlabel {
+    margin: 0;
+    flex: 1 0 auto;
+}
+
+.listItem {
+    margin-left: 21px;
+    margin-right: 5px;
+}
+
+.todo-list-div {
+    margin-bottom: 10px;
 }
 
 /* Checkbox when checked*/
-input[type=checkbox]:checked+label.textlabel {
+.listItem:checked+label.textlabel {
     text-decoration: line-through;
     color: gray;
 }
 
 /*remove padding of list*/
-ul {
+.todo-list {
+    margin: 0;
     padding-inline-start: 0;
 }
 
 /*design of to-do list item*/
-ul li {
-    background: #fff;
+.todo-list li {
     font-size: 16px;
     transition: 0.2s;
     list-style: none;
-    position: relative;
-    padding: 10px 5px 10px 20px;
-    font-family: 'Roboto',sans-serif;
+    display: flex;
+    align-items: center;
 }
 
 /*Change background of list item when hover*/
-ul li:hover {
-    background: beige;
+.todo-list li:hover {
+    background: rgb(235, 235, 235);
 }
 
 /*Style close button*/
 .close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 10px 15px 10px 15px;
+    padding: 8px 13px 8px 13px;
 }
 
 /*Change background of close button when hover*/
@@ -532,15 +553,19 @@ ul li:hover {
 
 /*Style add item button */
 .AddBtn {
-    background-color: #bbb;
+    background: rgb(140, 140, 140);
     cursor: pointer;
     transition: 0.3s;
-    border:1px;
+    border: 50px;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
 }
 
 /*Change background of add button when hover*/
 .AddBtn:hover {
-    background-color: BEIGE;
+    background: rgb(180, 180, 180);
 }
 
 /*

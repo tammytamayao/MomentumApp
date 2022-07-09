@@ -195,14 +195,17 @@
                 <div class="todo-div">
                     <div class="header">
                       <h2 id="title">My To Do List</h2>
-                      <form onsubmit="return false">
-                        <input type="text" id="input" placeholder="Add new task." autocomplete="off">
-                        <button onclick="newToDo()" class="AddBtn" type="submit">+</button>
-                      </form>
                     </div>
                 
-                    <div>
+                    <div class="todo-list-div">
                       <ul id="ul" class="todo-list"></ul>
+                    </div>
+
+                    <div class="todo-input-div">
+                      <form onsubmit="return false" class="todo-form">
+                        <input type="text" id="input" class="todo-input" placeholder="Add new task." autocomplete="off">
+                        <button onclick="newToDo()" class="AddBtn" type="submit">+</button>
+                      </form>
                     </div>
                 </div>
                 <div class="triangle-down"></div>
