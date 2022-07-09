@@ -16,7 +16,6 @@ function update(){
 
         hours = (hours % 12) || 12;
 
-        hours = formatZeroes(hours);
         minutes = formatZeroes(minutes);
 
         return `${hours}:${minutes}`;
@@ -24,6 +23,6 @@ function update(){
 
     function formatZeroes(time){
         time = time.toString();
-        return time;
+        return time.length < 2 ? "0" + time : time;
     }
 }
