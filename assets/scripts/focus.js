@@ -40,3 +40,20 @@ checkbox.addEventListener("change", e => {
         textFocusOutput.style.textDecoration="none";
     }
 })
+
+
+//focus popup options
+const focusButton = document.querySelector("#dotsFocusButton");
+const focusPopup = document.querySelector("#focusPopupContainer");
+
+focusButton.addEventListener("click", e => {
+    if(focusPopup.style.opacity == 0){
+        focusPopup.classList.toggle("hide");
+        focusButton.style.opacity = 1;
+        setTimeout(function() {focusPopup.style.opacity = 1}, 0);
+    } else{
+        focusButton.style.opacity = null;
+        focusPopup.style.opacity = 0;
+        setTimeout(function() {focusPopup.classList.toggle("hide")}, 150);
+    }
+});
