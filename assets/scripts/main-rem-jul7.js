@@ -1,5 +1,4 @@
 homePage();
-setGreeting();
 
 function validateEmail(string) {
     // The regular expression used by [type="email"]
@@ -28,6 +27,7 @@ function homePage() {
     const formSuccess = localStorage.getItem('formSuccess')
 
     if (formSuccess) {
+        setGreeting();
         document.querySelector(".container").classList.add("hide");
         document.querySelector(".main-container").classList.remove("hide");
     } else if (typeof localStorage.formName !== 'undefined' && typeof localStorage.formEmail === 'undefined') {
