@@ -707,6 +707,7 @@ Settings
 .settings-header h3 {
     color: black;
     font-size: 1.375rem;
+    font-weight: 600;
 }
 
 .settings-desc {
