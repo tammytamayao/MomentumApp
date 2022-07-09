@@ -33,16 +33,17 @@ function update(){
 }
 
 
-const timeButton = document.getElementById("dotsTimeButton");
-const popup = document.querySelector(".popupContainer");
+const timeButton = document.querySelector("#dotsTimeButton");
+const timePopup = document.querySelector("#timePopupContainer");
 
 timeButton.addEventListener("click", e => {
-
-    if(popup.style. opacity == 0){
+    if(timePopup.style. opacity == 0){
+        timePopup.classList.toggle("hide")
         timeButton.style.opacity = 1;
-        popup.style.opacity= 1 ;
+        setTimeout(function() {timePopup.style.opacity = 1}, 0);
     } else{
         timeButton.style.opacity = null;
-        popup.style.opacity = 0;
+        timePopup.style.opacity = 0;
+        setTimeout(function() {timePopup.classList.toggle("hide")}, 150);
     }
 });
