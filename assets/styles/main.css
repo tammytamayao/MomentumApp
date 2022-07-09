@@ -332,6 +332,113 @@ Focus
 
 /*
 ===================================================================
+Todo
+===================================================================
+*/
+.todo-popup {
+    position: absolute;
+    bottom: 2.3rem;
+    right: 0.5rem;
+}
+
+.todo-popup .triangle-down {
+    margin-right: 1.3rem;
+    margin-left: auto;
+}
+
+/*container style*/
+.todo-div {
+    height: auto;
+    width: 320px;
+    color: black;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    padding: 0;
+}
+
+/*Style Input and title*/
+.header {
+    position: relative;
+    padding: 10px 5px 10px 20px;
+}
+
+.header input {
+    width: 200px;
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type=checkbox]:hover {
+    cursor: pointer;
+}
+
+.header button {
+    width: 30px;
+    height: 30px;
+}
+
+#title {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Checkbox when checked*/
+input[type=checkbox]:checked+label.textlabel {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/*remove padding of list*/
+ul {
+    padding-inline-start: 0;
+}
+
+/*design of to-do list item*/
+ul li {
+    background: #fff;
+    font-size: 16px;
+    transition: 0.2s;
+    list-style: none;
+    position: relative;
+    padding: 10px 5px 10px 20px;
+    font-family: 'Roboto',sans-serif;
+}
+
+/*Change background of list item when hover*/
+ul li:hover {
+    background: beige;
+}
+
+/*Style close button*/
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 15px 10px 15px;
+}
+
+/*Change background of close button when hover*/
+.close:hover {
+    background-color: #f44336;
+    color: white;
+    cursor: pointer;
+}
+
+/*Style add item button */
+.AddBtn {
+    background-color: #bbb;
+    cursor: pointer;
+    transition: 0.3s;
+    border:1px;
+}
+
+/*Change background of add button when hover*/
+.AddBtn:hover {
+    background-color: BEIGE;
+}
+
+/*
+===================================================================
 Quote and Image Description
 ===================================================================
 */

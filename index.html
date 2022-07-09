@@ -114,6 +114,22 @@
         </div>
         <div class="container-todo">
             <span class="todo-button">Todo</span>
+            <div class="todo-popup hide">
+                <div class="todo-div">
+                    <div class="header">
+                      <h2 id="title">My To Do List</h2>
+                      <form onsubmit="return false">
+                        <input type="text" id="input" placeholder="Add new task." autocomplete="off">
+                        <button onclick="newToDo()" class="AddBtn" type="submit">+</button>
+                      </form>
+                    </div>
+                
+                    <div>
+                      <ul id="ul" class="todo-list"></ul>
+                    </div>
+                </div>
+                <div class="triangle-down"></div>
+            </div>
         </div>
         <div id="add-quote-popup" class="popup hide">
             <div id="add-quote-close" class="close-btn">&#10006</div>
@@ -169,6 +185,8 @@
     <script src="assets/scripts/background.js"></script>
     <script src="assets/scripts/quotes.js"></script>
     <script src="assets/scripts/settings.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="assets/scripts/todo.js"></script>
 </body>
 
 </html>
