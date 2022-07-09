@@ -146,8 +146,14 @@ const toDoBtn = document.querySelector(".todo-button");
 const toDoPopup = document.querySelector(".todo-popup");
 
 function toggleToDo() {
-    toDoPopup.classList.toggle("hide");
     toDoBtn.classList.toggle("active");
+    if(toDoPopup.style. opacity == 0){
+        toDoPopup.classList.toggle("hide")
+        setTimeout(function() {toDoPopup.style.opacity = 1}, 0);
+    } else{
+        toDoPopup.style.opacity = 0;
+        setTimeout(function() {toDoPopup.classList.toggle("hide")}, 150);
+    }
 }
 
 toDoBtn.addEventListener("click", toggleToDo);

@@ -2,8 +2,14 @@ const settingsBtn = document.querySelector("#settings-btn");
 const settingsPopup = document.querySelector(".settings-popup");
 
 function toggleSettings() {
-    settingsPopup.classList.toggle("hide");
     settingsBtn.classList.toggle("active");
+    if(settingsPopup.style. opacity == 0){
+        settingsPopup.classList.toggle("hide")
+        setTimeout(function() {settingsPopup.style.opacity = 1}, 0);
+    } else{
+        settingsPopup.style.opacity = 0;
+        setTimeout(function() {settingsPopup.classList.toggle("hide")}, 150);
+    }
 }
 
 settingsBtn.addEventListener("click", toggleSettings);

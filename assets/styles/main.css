@@ -435,6 +435,8 @@ Todo
     position: absolute;
     bottom: 2.3rem;
     right: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.15s;
 }
 
 .todo-popup .triangle-down {
@@ -734,6 +736,8 @@ Settings
     position: absolute;
     left: 0.5rem;
     bottom: 2.3rem;
+    opacity: 0;
+    transition: opacity 0.15s;
 }
 
 .settings-popup .triangle-down {
