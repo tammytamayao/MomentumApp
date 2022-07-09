@@ -41,6 +41,7 @@ function update(){
 
 const timeButton = document.getElementById("dotsTimeButton");
 const popup = document.querySelector(".popupContainer");
+const pointer = document.querySelector(".pointer");
 
 timeButton.addEventListener("click", e => {
 
@@ -48,6 +49,12 @@ timeButton.addEventListener("click", e => {
         popup.style. opacity=1;
     } else{
         popup.style. opacity=0;
+    }
+
+    if(pointer.style. opacity == 0){
+        pointer.style. opacity=1;
+    } else{
+        pointer.style. opacity=0;
     }
 });
 

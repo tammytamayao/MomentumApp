@@ -94,15 +94,14 @@ input {
 }
 
 .pointer {
-    height: 0;
-    width: 0;
+    height: 12px;
+    width: 12px;
     position: absolute;
-    display: block;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    opacity: 1;
-    content: "";
-    box-sizing: border-box;
+    background-color: rgba(255, 255, 255);
+    top: 50px;
+    right: 130px;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+    opacity: 0;
 }
 
 .popupText {
