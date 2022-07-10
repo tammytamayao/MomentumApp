@@ -8,7 +8,7 @@ focus.addEventListener("keypress", function (e){
         let focus = document.getElementById("focus");
         let inputFocus = focus.value;
         if (inputFocus.length <= 0){
-            focusError.innerHTML = "please enter focus";
+            alert("Please enter your main focus");
             return;
         }
         focusOutput.innerHTML = focus.value;
@@ -79,10 +79,10 @@ focusButton.addEventListener("click", e => {
 });
 
 window.addEventListener('load', (event) => {
-    if(localStorage.focus !== null) {
+    if(typeof localStorage.focus !== 'undefined') {
         document.getElementById("focusCheck").checked = localStorage.getItem(focusCheck);
                     
-        if (JSON.parse(localStorage.focusCheck)) {
+        if (localStorage.getItem(focusCheck)) {
             document.getElementById("textFocusOutput").style.textDecoration = 'line-through';
             checkbox.click();
         }
