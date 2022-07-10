@@ -21,19 +21,11 @@ function toggleFocus() {
     const myFocus = document.querySelector('.myFocus');
     const mainFocus = document.querySelector('.mainFocus');
 
-    if(myFocus.style.opacity === 1) {
         myFocus.style.opacity = 0;
         setTimeout(function() {myFocus.classList.toggle('hide')}, 300);
     
         setTimeout(function() {mainFocus.classList.toggle('hide')}, 0);
         setTimeout(function() {mainFocus.style.opacity = 1}, 600);
-    } else {
-        mainFocus.style.opacity = 0;
-        setTimeout(function() {mainFocus.classList.toggle('hide')}, 300);
-    
-        setTimeout(function() {myFocus.classList.toggle('hide')}, 0);
-        setTimeout(function() {myFocus.style.opacity = 1}, 600);
-    }
 };
 
 $('#focusCheck').on('change', function () {
