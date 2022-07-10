@@ -49,14 +49,16 @@ class Quote {
     }
 };
 
-const localQuotesArray = JSON.parse(localStorage.getItem('quotes'));
+function getLocalQuotes() {
+    if (JSON.parse(localStorage.getItem('quotes')) === null) {
+        localStorage.setItem('quotes', JSON.stringify(defaultQuotes));
+    }
 
-if (!localQuotesArray) {
-    localStorage.setItem('quotes', JSON.stringify(defaultQuotes))
+    return JSON.parse(localStorage.getItem('quotes'));
 }
 
 function setRandomQuote() {
-    const quotes = JSON.parse(localStorage.getItem('quotes'));
+    const quotes = getLocalQuotes();
     const quoteSpan = document.querySelector(".random-quote");
     const quotePersonSpan = document.querySelector(".person");
 
@@ -67,6 +69,7 @@ function setRandomQuote() {
 
 function showQuoteList() {
     const quoteList = document.querySelector(".quote-list");
+    const localQuotesArray = getLocalQuotes();
     for(let i = 0; i < localQuotesArray.length; i++) {
         quoteItem = document.createElement("li");
         quoteItem.classList.add("quote-item");
@@ -89,6 +92,7 @@ function showQuoteList() {
 function addQuote() {
     let newQuote = document.querySelector("#new-quote").value;
     let newPerson = document.querySelector("#new-person-quote").value;
+    const localQuotesArray = getLocalQuotes();
 
     if (newQuote) {
         const addedQuote = new Quote(newPerson, newQuote);
