@@ -471,7 +471,7 @@ Todo
     color: black;
     background: rgba(255, 255, 255, 0.96);
     border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.30);
     padding: 18px 0;
 }
 
@@ -795,6 +795,7 @@ Settings
 
 .settings-div {
     background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.30);
     border-radius: 5px;
     height: 520px;
     width: 720px;
