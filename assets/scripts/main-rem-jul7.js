@@ -122,11 +122,8 @@ document.addEventListener(('DOMContentLoaded'), () => {
             document.getElementById('time-section').classList.remove('hide');
             localStorage.setItem('formSuccess', true); // set item to local storage    
 
-
             let inputName = document.getElementById('name').value;
             document.getElementById('greeting').innerHTML = getGreeting() + ', ' + inputName + '.';
-
-
         }
         passwordError.innerHTML = '';
     }, false);
