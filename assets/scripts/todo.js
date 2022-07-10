@@ -24,7 +24,6 @@ if (localStorage.getItem('toDoList') != null) {
 
 // Remove todo
 function removeTask() {
-    toDoList = JSON.parse(localStorage.getItem('toDoList'));
     const spans = document.querySelectorAll('.close');
     const closeIdx = Array.from(spans).indexOf(this);
     toDoList.splice(closeIdx, 1);
@@ -44,7 +43,6 @@ function removeTask() {
 // })
 
 function toggleTask() {
-    toDoList = JSON.parse(localStorage.getItem('toDoList'));
     const checkboxes = document.querySelectorAll('.listItem');
     let doneTask = $(this).is(':checked');
     let listIndex = Array.from(checkboxes).indexOf(this);;
