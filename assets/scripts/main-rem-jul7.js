@@ -15,11 +15,11 @@ function getGreeting() {
     let time = null;
 
     if (curHr < 12) {
-        time = "Good Morning";
+        time = "Good morning";
     } else if (curHr < 18) {
-        time = "Good Afternoon";
+        time = "Good afternoon";
     } else {
-        time = "Good Evening";
+        time = "Good evening";
     }
     return time
 }
