@@ -95,17 +95,17 @@ function showQuoteList() {
 
 
 function addQuote() {
-    let newQuote = document.querySelector("#new-quote").value;
-    let newPerson = document.querySelector("#new-person-quote").value;
+    let newQuote = document.querySelector("#new-quote").value.trim();
+    let newPerson = document.querySelector("#new-person-quote").value.trim();
     const localQuotesArray = getLocalQuotes();
+    const addedQuote = new Quote(newPerson, newQuote);
 
-    if (newQuote) {
-        const addedQuote = new Quote(newPerson, newQuote);
-        localQuotesArray.push(addedQuote);
-        localStorage.setItem('quotes', JSON.stringify(localQuotesArray));
-        showQuoteItem(addedQuote);
-        toggleAddQuotePopup();
-    }
+    localQuotesArray.push(addedQuote);
+    localStorage.setItem('quotes', JSON.stringify(localQuotesArray));
+    showQuoteItem(addedQuote);
+    toggleAddQuotePopup();
+    
+    alert(`You've successfully added the following quote: \n\n"${addedQuote.quote}" \n-${addedQuote.person}`);
 }
 
 function toggleAddQuotePopup() {
