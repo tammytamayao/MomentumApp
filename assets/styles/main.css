@@ -166,7 +166,7 @@ Clock
 }
 
 .popupDiv {
-    background-color: rgba(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.96);
     padding: 6px 0;
     height: auto;
     width: 165px;
@@ -478,10 +478,12 @@ Todo
 /*Style Input and title*/
 .todo-input-div {
     padding: 0 21px;
+    background: transparent;
 }
 
 .todo-input-div form {
     display: flex;
+    background: transparent;
 }
 
 .header {
@@ -494,7 +496,7 @@ Todo
     height: 30px;
     border: none;
     flex: 1 0 auto;
-    background: rgba(255, 255, 255, 0.96);
+    background: transparent;
 }
 
 .todo-input:focus {
