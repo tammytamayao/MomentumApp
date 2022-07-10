@@ -8,49 +8,65 @@ if (localStorage.getItem('toDoList') != null) {
     })
 }
 
-// Remove todo
-// $('.close').click(function (e) {
-//   var spans = document.querySelectorAll('.close');
-//   toDoList.splice(Array.from(spans).indexOf(e.target), 1);
-//   localStorage.setItem('toDoList', JSON.stringify(toDoList));
-// });
-
 // Delete todo
 // NEED TO FIX - MAY DI NABUBURA SA LOCAL STORAGE
-$('.todo-list').on('click', '.close', function () {
-    console.log('getting close');
-    let listIndex = $(this).data('index');
-    let taskList = JSON.parse(localStorage.getItem('toDoList'))
-    taskList.splice(listIndex, 1);
-    console.log(taskList);
-    localStorage.setItem('toDoList', JSON.stringify(taskList));
-})
+// $('.todo-list').on('click', '.close', function () {
+//     const toDoList = JSON.parse(localStorage.getItem('toDoList'));
+//     console.log('getting close');
+//     let listIndex = $(this).closest('li').data('index');
+//     listItem = $(this).closest('li')[0];
+//     console.log(listItem);
+//     toDoList.splice(listIndex, 1);
+//     listItem.remove();
+//     console.log(listIndex);
+//     localStorage.setItem('toDoList', JSON.stringify(toDoList));
+// })
 
+// Remove todo
+function removeTask() {
+    toDoList = JSON.parse(localStorage.getItem('toDoList'));
+    const spans = document.querySelectorAll('.close');
+    const closeIdx = Array.from(spans).indexOf(this);
+    toDoList.splice(closeIdx, 1);
+    this.parentElement.remove();
+    localStorage.setItem('toDoList', JSON.stringify(toDoList));
+};
 
 // Done task on checkbox
-$('.todo-list').on('change', '.listItem', function () {
+// $('.todo-list').on('change', '.listItem', function () {
+//     toDoList = JSON.parse(localStorage.getItem('toDoList'));
+//     let doneTask = $(this).is(':checked');
+//     let listIndex = $(this).closest('li').data('index');
+//     let listItem = toDoList[listIndex];
+//     console.log(listItem);
+//     listItem.done = doneTask;
+//     localStorage.setItem('toDoList', JSON.stringify(toDoList));
+// })
+
+function toggleTask() {
+    toDoList = JSON.parse(localStorage.getItem('toDoList'));
+    const checkboxes = document.querySelectorAll('.listItem');
     let doneTask = $(this).is(':checked');
-    let listIndex = $(this).closest('li').data('index');
-    let taskList = JSON.parse(localStorage.getItem('toDoList'));
-    let listItem = taskList[listIndex];
+    let listIndex = Array.from(checkboxes).indexOf(this);;
+    let listItem = toDoList[listIndex];
     listItem.done = doneTask;
-    console.log(taskList);
-    localStorage.setItem('toDoList', JSON.stringify(taskList));
-})
+    localStorage.setItem('toDoList', JSON.stringify(toDoList));
+}
 
 //add to-do list item and store it in web browser
 function newToDo() {
-    var list = document.createElement("li");
-    var input = document.getElementById("input").value;
+    const list = document.createElement("li");
+    const input = document.getElementById("input").value;
 
-    var checkbox = document.createElement('input');
+    const checkbox = document.createElement('input');
     checkbox.type = "checkbox";
     checkbox.name = "checkbox";
     // checkbox.value = "value";
     checkbox.id = "checkbox";
     checkbox.className = 'listItem';
+    checkbox.addEventListener("click", toggleTask);
 
-    var label = document.createElement('label');
+    const label = document.createElement('label');
     label.className = "textlabel";
     label.appendChild(document.createTextNode(input));
     list.appendChild(checkbox);
@@ -66,9 +82,10 @@ function newToDo() {
     }
     document.getElementById("input").value = "";
 
-    var span = document.createElement("span");
-    var text = document.createTextNode("\u00D7");
+    const span = document.createElement("span");
+    const text = document.createTextNode("\u00D7");
     span.className = "close";
+    span.addEventListener("click", removeTask);
     span.appendChild(text);
     list.appendChild(span);
     toDoList.push({ text: input, done: false });
@@ -76,12 +93,12 @@ function newToDo() {
     // console.log(toDoList.length);
     list.setAttribute('data-index', toDoList.length - 1);
 
-    for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
-        var div = this.parentElement;
-        div.style.display = "none";
-    }
-    }
+    // for (i = 0; i < close.length; i++) {
+    //     close[i].onclick = function () {
+    //         var div = this.parentElement;
+    //         div.style.display = "none";
+    //     }
+    // }
 }
 // TODO: Create a function that will change the done status of the todolist;
 
@@ -94,6 +111,7 @@ function displayList(input, index) {
     checkbox.name = "todolist_" + index;
     checkbox.id = index;
     checkbox.className = 'listItem';
+    checkbox.addEventListener("click", toggleTask);
 
     var label = document.createElement('label');
     label.className = "textlabel";
@@ -120,26 +138,28 @@ function displayList(input, index) {
     var span = document.createElement("span");
     var text = document.createTextNode("\u00D7");
     span.className = "close";
+    span.addEventListener("click", removeTask);
     span.appendChild(text);
     list.appendChild(span);
 
-    for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
-        var div = this.parentElement;
-        div.style.display = "none";
-    }
-    }
+    // for (i = 0; i < close.length; i++) {
+        // close[i].onclick = function () {
+        //     var div = this.parentElement;
+        //     div.style.display = "none";
+        // }
+    // }
 }
 
 //Click close button to hide element
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
-    var div = this.parentElement;
-    div.style.display = "none";
-    }
-}
+// var close = document.getElementsByClassName("close");
+// var i;
+// for (i = 0; i < close.length; i++) {
+//     close[i].onclick = function () {
+//         let div = this.parentElement;
+//         div.style.display;
+//     }
+// }
+
 
 //Show/hide todo popup when todo button is clicked
 const toDoBtn = document.querySelector(".todo-button");
