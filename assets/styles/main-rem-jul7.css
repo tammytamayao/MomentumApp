@@ -1,3 +1,8 @@
+.container {
+    opacity: 1;
+    transition: all 0.3s;
+}
+
 .custom-input {
     color: #fff;
     border: 0;
@@ -25,4 +30,19 @@
 #greeting {
     font-size: 3.5em;
     margin: 0;
+}
+
+#name-section {
+    opacity: 1;
+}
+
+#email-section,
+#password-section {
+    opacity: 0;
+}
+
+#email-section,
+#password-section,
+#name-section {
+    transition: all 0.5s;
 }

@@ -15,11 +15,11 @@ function getGreeting() {
     let time = null;
 
     if (curHr < 12) {
-        time = "Good Morning";
+        time = "Good morning";
     } else if (curHr < 18) {
-        time = "Good Afternoon";
+        time = "Good afternoon";
     } else {
-        time = "Good Evening";
+        time = "Good evening";
     }
     return time
 }
@@ -28,24 +28,16 @@ function homePage() {
     const formSuccess = localStorage.getItem('formSuccess')
 
     if (formSuccess) {
-        if(typeof localStorage.focus !== 'undefined'){
-            document.getElementById("myFocus").classList.add("hide");
-            document.getElementById("mainFocus").classList.remove("hide");
-            document.getElementById("focusCheck").checked = JSON.parse(localStorage.focusCheck);
-            
-            if (JSON.parse(localStorage.focusCheck)) {
-                document.getElementById("textFocusOutput").style.textDecoration = 'line-through';
-            }
-            
-            document.getElementById("textFocusOutput").innerHTML = localStorage.focus;
-        }
         setGreeting();
         document.querySelector(".container").classList.add("hide");
+        document.querySelector(".main-container").style.opacity = 1;
         document.querySelector(".main-container").classList.remove("hide");
     } else if (typeof localStorage.formName !== 'undefined' && typeof localStorage.formEmail === 'undefined') {
+        document.getElementById("email-section").style.opacity = 1;
         document.getElementById("email-section").classList.remove("hide");
         document.getElementById('nickname').innerHTML = localStorage.formName;
      } else if (typeof localStorage.formName !== 'undefined' && typeof localStorage.formEmail !== 'undefined') {
+        document.getElementById("password-section").style.opacity = 1;
         document.getElementById("password-section").classList.remove("hide");
      } else {
         document.getElementById("name-section").classList.remove("hide");
@@ -71,9 +63,13 @@ document.addEventListener(('DOMContentLoaded'), () => {
                 nameError.innerHTML = 'please enter name';
                 return;
             }
-            document.getElementById('name-section').style.display = 'none';
+
+            document.getElementById('name-section').style.opacity = 0;
+            setTimeout(function() {document.getElementById('name-section').classList.add("hide")}, 500);
+
             document.getElementById('nickname').innerHTML = inputName;
             document.getElementById("email-section").classList.remove("hide");
+            setTimeout(function() {document.getElementById("email-section").style.opacity = 1}, 1000);
             localStorage.setItem('formName', inputName); // set item to local storage    
         }
         nameError.innerHTML = '';
@@ -100,8 +96,13 @@ document.addEventListener(('DOMContentLoaded'), () => {
                 emailError.innerHTML = 'invalid email';
                 return;
             }
-            document.getElementById('email-section').style.display = 'none';
+
+            document.getElementById('email-section').style.opacity = 0;
+            setTimeout(function() {document.getElementById('email-section').classList.add('hide')}, 500);
+            
             document.getElementById('password-section').classList.remove('hide');
+            setTimeout(function() {document.getElementById('password-section').style.opacity = 1}, 1000);
+
             localStorage.setItem('formEmail', inputEmail); // set item to local storage    
         }
         emailError.innerHTML = '';
@@ -132,7 +133,12 @@ document.addEventListener(('DOMContentLoaded'), () => {
             }
 
             localStorage.setItem('formSuccess', true); // set item to local storage    
-            homePage();
+   
+            document.querySelector(".container").style.opacity = 0;
+            setTimeout(function() {document.querySelector(".container").classList.add("hide")}, 500);
+
+            document.querySelector(".main-container").classList.remove("hide");
+            setTimeout(function() {document.querySelector(".main-container").style.opacity = 1}, 1000);
         }
         passwordError.innerHTML = '';
     }, false);

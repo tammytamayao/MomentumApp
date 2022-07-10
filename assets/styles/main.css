@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
 }
 
 body {
@@ -11,6 +15,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     height: 100%;
+    cursor: default;
 }
 
 .bgImage {
@@ -43,6 +48,8 @@ Main Container Grid
     height: 100vh;
     justify-content: center;
     align-content: center;
+    opacity: 0;
+    transition: all 0.3s;
 }
 
 .container-clock {
@@ -163,7 +170,7 @@ Clock
 }
 
 .popupDiv {
-    background-color: rgba(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.96);
     padding: 6px 0;
     height: auto;
     width: 165px;
@@ -282,6 +289,8 @@ Focus
 
 .myFocus {
     width: auto;
+    opacity: 1;
+    transition: opacity 0.3s;
 }
 
 .myFocusQuestion {
@@ -308,6 +317,8 @@ Focus
 
 .mainFocus {
     width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .today {
@@ -318,9 +329,14 @@ Focus
     width: 100%;
 }
 
+#getFocus {
+    height: auto;
+}
+
 .finalFocus {
     display: flex;
     width: 100%;
+    height: fit-content;
 }
 
 .classFocusCheck {
@@ -387,7 +403,7 @@ Focus
     max-width: 87.5vw;
     text-overflow: ellipsis;
     margin: 0;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .dots {
@@ -459,17 +475,19 @@ Todo
     color: black;
     background: rgba(255, 255, 255, 0.96);
     border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.30);
     padding: 18px 0;
 }
 
 /*Style Input and title*/
 .todo-input-div {
     padding: 0 21px;
+    background: transparent;
 }
 
 .todo-input-div form {
     display: flex;
+    background: transparent;
 }
 
 .header {
@@ -482,7 +500,7 @@ Todo
     height: 30px;
     border: none;
     flex: 1 0 auto;
-    background: rgba(255, 255, 255, 0.96);
+    background: transparent;
 }
 
 .todo-input:focus {
@@ -781,6 +799,7 @@ Settings
 
 .settings-div {
     background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.30);
     border-radius: 5px;
     height: 520px;
     width: 720px;
@@ -984,7 +1003,7 @@ Typography
 .fa-gear,
 .fa-shuffle,
 .todo-button {
-    color: rgb(210, 210, 210);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /*
