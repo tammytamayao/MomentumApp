@@ -14,8 +14,14 @@ focus.addEventListener("keypress", function (e){
         document.querySelector('.mainFocus').classList.remove('hide');
         document.querySelector('.myFocus').classList.add('hide');
         focusOutput.innerHTML = focus.value;
+        localStorage.setItem('focus', focus.value);
     }
 })
+
+$('#focusCheck').on('change', function () {
+    let doneFocus = $(this).is(':checked');
+    localStorage.setItem('focusCheck', JSON.stringify(doneFocus));
+  })
 
 const encouragingW = document.getElementById("words");
 
