@@ -41,14 +41,20 @@ checkbox.addEventListener("change", e => {
         const randomWords = ewords[(Math.floor(Math.random() * ewords.length))];
         encouragingW.innerHTML = randomWords;
         textFocusOutput.style.textDecoration="line-through";
+        e.target.parentElement.style.opacity = 1;
 
         ewDiv.classList.remove('hide');
         setTimeout(function() {ewDiv.style.opacity = 1}, 0);
         setTimeout(function() {ewDiv.style.opacity = 0}, 1300);
     } else {
+        e.target.parentElement.style.opacity = null;
         textFocusOutput.style.textDecoration = "none";
     }
 })
+
+if(checkbox.checked) {
+    checkbox.parentElement.style.opacity = 1;
+}
 
 
 //focus popup options
