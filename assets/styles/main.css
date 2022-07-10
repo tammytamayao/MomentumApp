@@ -283,6 +283,8 @@ Focus
 
 .myFocus {
     width: auto;
+    opacity: 1;
+    transition: opacity 0.3s;
 }
 
 .myFocusQuestion {
@@ -309,6 +311,8 @@ Focus
 
 .mainFocus {
     width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .today {

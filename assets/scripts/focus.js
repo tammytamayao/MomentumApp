@@ -11,12 +11,22 @@ focus.addEventListener("keypress", function (e){
             focusError.innerHTML = "please enter focus";
             return;
         }
-        document.querySelector('.mainFocus').classList.remove('hide');
-        document.querySelector('.myFocus').classList.add('hide');
         focusOutput.innerHTML = focus.value;
         localStorage.setItem('focus', focus.value);
+        toggleFocus();
     }
-})
+});
+
+function toggleFocus() {
+    const myFocus = document.querySelector('.myFocus');
+    const mainFocus = document.querySelector('.mainFocus');
+
+    myFocus.style.opacity = 0;
+    setTimeout(function() {myFocus.classList.toggle('hide')}, 300);
+
+    setTimeout(function() {mainFocus.classList.toggle('hide')}, 0);
+    setTimeout(function() {mainFocus.style.opacity = 1}, 600);
+};
 
 $('#focusCheck').on('change', function () {
     let doneFocus = $(this).is(':checked');
@@ -32,7 +42,7 @@ const ewords = ["Nice.",
 
 //checkbox
 
-checkbox = document.getElementById("focusCheck");
+const checkbox = document.getElementById("focusCheck");
 const ewDiv = document.querySelector(".encouragingWords");
 
 checkbox.addEventListener("change", e => {
@@ -41,21 +51,16 @@ checkbox.addEventListener("change", e => {
         const randomWords = ewords[(Math.floor(Math.random() * ewords.length))];
         encouragingW.innerHTML = randomWords;
         textFocusOutput.style.textDecoration="line-through";
-        e.target.parentElement.style.opacity = 1;
+        checkbox.parentElement.style.opacity = 1;
 
         ewDiv.classList.remove('hide');
         setTimeout(function() {ewDiv.style.opacity = 1}, 0);
         setTimeout(function() {ewDiv.style.opacity = 0}, 1300);
     } else {
-        e.target.parentElement.style.opacity = null;
         textFocusOutput.style.textDecoration = "none";
+        checkbox.parentElement.style.opacity = null;
     }
 })
-
-if(checkbox.checked) {
-    checkbox.parentElement.style.opacity = 1;
-}
-
 
 //focus popup options
 const focusButton = document.querySelector("#dotsFocusButton");
@@ -70,5 +75,21 @@ focusButton.addEventListener("click", e => {
         focusButton.style.opacity = null;
         focusPopup.style.opacity = 0;
         setTimeout(function() {focusPopup.classList.toggle("hide")}, 150);
+    }
+});
+
+window.addEventListener('load', (event) => {
+    if(localStorage.focus !== null) {
+        document.getElementById("focusCheck").checked = localStorage.getItem(focusCheck);
+                    
+        if (JSON.parse(localStorage.focusCheck)) {
+            document.getElementById("textFocusOutput").style.textDecoration = 'line-through';
+            checkbox.click();
+        }
+
+        document.getElementById("textFocusOutput").innerHTML = localStorage.focus;
+        document.querySelector('.myFocus').classList.add('hide');
+        document.querySelector('.mainFocus').classList.remove('hide');
+        document.querySelector('.mainFocus').style.opacity = 1;
     }
 });

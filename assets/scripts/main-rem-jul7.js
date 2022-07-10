@@ -28,17 +28,6 @@ function homePage() {
     const formSuccess = localStorage.getItem('formSuccess')
 
     if (formSuccess) {
-        if(typeof localStorage.focus !== 'undefined'){
-            document.getElementById("myFocus").classList.add("hide");
-            document.getElementById("mainFocus").classList.remove("hide");
-            document.getElementById("focusCheck").checked = JSON.parse(localStorage.focusCheck);
-            
-            if (JSON.parse(localStorage.focusCheck)) {
-                document.getElementById("textFocusOutput").style.textDecoration = 'line-through';
-            }
-            
-            document.getElementById("textFocusOutput").innerHTML = localStorage.focus;
-        }
         setGreeting();
         document.querySelector(".container").classList.add("hide");
         document.querySelector(".main-container").classList.remove("hide");
