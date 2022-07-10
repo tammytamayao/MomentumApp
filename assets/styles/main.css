@@ -511,6 +511,8 @@ Todo
 
 .todo-list-div {
     margin-bottom: 10px;
+    height: 150px;
+    overflow-y: auto;
 }
 
 /* Checkbox when checked*/
