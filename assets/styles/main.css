@@ -323,9 +323,14 @@ Focus
     width: 100%;
 }
 
+#getFocus {
+    height: auto;
+}
+
 .finalFocus {
     display: flex;
     width: 100%;
+    height: fit-content;
 }
 
 .classFocusCheck {
@@ -392,7 +397,7 @@ Focus
     max-width: 87.5vw;
     text-overflow: ellipsis;
     margin: 0;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .dots {
