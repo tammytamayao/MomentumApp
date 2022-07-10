@@ -5,23 +5,135 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/main-rem-jul7.css">
     <link rel="stylesheet" type="text/css" href="assets/styles/main.css">
     <script src="https://kit.fontawesome.com/ea79cbf8c3.js" crossorigin="anonymous"></script>
     <title>Momentum App</title>
 </head>
 
 <body>
-    <div class="main-container">
-        <div class="container-clock">
-            <div class="clock">
-                <label id="myTime"></label>
-            </div>
-            <div class="greeting">
+    <div class="container">
+        <div class="row text-center custom-mt">
+            <div class="col">
+                <section id="name-section" class="hide">
+                    <label class="custom-label" for="name">Hello, what is your name?</label>
+                    <div class="row">
+                        <div class="col">
+                            <input class="custom-input" type="text" name="name" id="name" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="validation-message">
+                        <p id="name-error"></p>
+                    </div>
+                </section>
 
+                <section class="hide" id="email-section">
+                    <label class="custom-label" for="email">What is your email, <span id="nickname"></span>?</label>
+                    <div class="row">
+                        <div class="col">
+                            <input class="custom-input" type="email" name="email" id="email" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="validation-message">
+                        <p id="email-error"></p>
+                    </div>
+                </section>
+
+                <section class="hide" id="password-section">
+                    <label class="custom-label" for="password">Assign password</label>
+                    <div class="row">
+                        <div class="col">
+                            <input class="custom-input" type="password" name="password" id="password"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="validation-message">
+                        <p id="password-error"></p>
+                    </div>
+                </section>
             </div>
         </div>
-        <div class="focus">
+    </div>
 
+    <div class="main-container hide">
+        <div class="container-clock">
+            <div class="clock">
+                <div class="div-left"></div>
+                <span id="myTime"></span>
+                <div class="div-right">
+                    <div class="dotsContainer" id="dotsTimeButton">
+                        <i class="fa-solid fa-ellipsis dots"></i>
+                    </div>
+                    <div class="popupContainer hide" id="timePopupContainer">
+                        <div class="triangle-up"></div>
+                        <div class="popupDiv">
+                            <div class="popupOption">
+                                <p class="popupText">24-hour clock</p>
+                                <label class="toggle">
+                                    <input type="checkbox"/>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="greeting-section" class="greeting">
+                <h4 id="greeting"></h4>
+            </div>
+        </div>
+        <div class="container-focus">
+            <div class="myFocus">
+                <div class="myFocusQuestion">
+                    <span>What is your main focus for today?</span>
+                </div>
+
+                <div class="myFocusInput">
+                    <input type="text" id="focus" class="classFocus">
+                </div>
+            </div>
+            
+            <div class="mainFocus hide">            
+                <h3 class="today">TODAY</h3>
+
+                <div class="finalFocus">
+                    <div class="div-left">
+                        <label class="checkboxContainer">
+                            <input type="checkbox" id="focusCheck" class="classFocusCheck">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <div id="getFocus">
+                        <p class="focusOutput" id="textFocusOutput"></p>
+                    </div>
+
+                    <div class="div-right">
+                        <div class="dotsContainer" id="dotsFocusButton">
+                            <i class="fa-solid fa-ellipsis dots">
+                            </i>
+                        </div>
+                        <div class="popupContainer hide" id="focusPopupContainer">
+                            <div class="triangle-up"></div>
+                            <div class="popupDiv">
+                                <div class="popupOption">
+                                    <i class="fa-solid fa-pencil optionIcon"></i>
+                                    <p class="popupText">Edit</p>
+                                </div>
+                                <div class="popupOption">
+                                    <div class="optionIcon">&#10006</div>
+                                    <p class="popupText">Clear</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="encouragingWords hide">
+                <p id="words"></p>
+            </div>
         </div>
         <div class="container-quote">
             <div class="quote-person-div">
@@ -35,7 +147,38 @@
             </div>
         </div>
         <div class="container-settings">
-            <i class="fa-solid fa-gear"></i>
+            <div class="settings-popup hide">
+                <div class="settings-div">
+                    <div class="settings-navbar">
+                        <div id="quotes-nav" class="nav-item nav-item-active">
+                            <span>Quotes</span>
+                        </div>
+                        <div id="photo-nav" class="nav-item">
+                            <span>Photos</span>
+                        </div>
+                    </div>
+                    <div class="settings-view">
+                        <div id="quotes-view" class="settings-view-item">
+                            <header class="settings-header">
+                                <h3 id="quotes-header">Quotes</h3>
+                                <p class="settings-desc">A daily reminder for inspiration and growth</p>
+                                <button id="add-quote">+ Add Quote</button>
+                            </header>
+                            <ul class="quote-list"></ul>
+                        </div>
+                        <div id="photos-view" class="settings-view-item hide">
+                            <header class="settings-header">
+                                <h3 id="photos-header">Photos</h3>
+                                <p class="settings-desc">See a new inspiring photo each day</p>
+                                <button id="add-photo">+ Add Photo</button>
+                            </header>
+                            <ul class="photo-list"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="triangle-down"></div>
+            </div>
+            <i id="settings-btn" class="fa-solid fa-gear"></i>
             <div class="desc-photographer-div">
                 <div class="desc-div">
                     <span class="img-desc"></span>
@@ -48,38 +191,60 @@
         </div>
         <div class="container-todo">
             <span class="todo-button">Todo</span>
+            <div class="todo-popup hide">
+                <div class="todo-div">
+                    <div class="header">
+                      <h2 id="title">My To Do List</h2>
+                    </div>
+                
+                    <div class="todo-list-div">
+                      <ul id="ul" class="todo-list"></ul>
+                    </div>
+
+                    <div class="todo-input-div">
+                      <form onsubmit="return false" class="todo-form">
+                        <input type="text" id="input" class="todo-input" placeholder="Add new task." autocomplete="off">
+                        <button onclick="newToDo()" class="AddBtn" type="submit">+</button>
+                      </form>
+                    </div>
+                </div>
+                <div class="triangle-down"></div>
+            </div>
         </div>
+        <div id="add-quote-popup" class="popup hide">
+            <div id="add-quote-close" class="close-btn">&#10006</div>
+            <header class="popup-header">
+                <h3 id="add-quote-header">Custom Quotes</h3>
+                <p class="popup-desc">Add your own collection of quotes to Momentum.</p>
+            </header>
+            <form class="popup-form" onsubmit="addQuote(); this.reset(); return false">
+                <div class="form-pair-div">
+                    <label for="new-quote" class="popup-label">Enter a new quote:</label>
+                    <textarea name="new-quote" id="new-quote" class="input-form" maxlength="110" required></textarea>
+                </div>
+                <div class="form-pair-div">
+                    <label for="new-person-quote" class="popup-label">Enter the person that said the quote:<br>(If you don't know, you can just leave it blank)</label>
+                    <input type="text" name="new-person-quote" class="input-form" id="new-person-quote">
+                </div>
+                <div>
+                    <input type="submit" value="Add New Quote" class="form-btn">
+                </div>
+            </form>
+        </div>
+        <div class="overlay hide"></div>
     </div>
 
-    <!-- <h1>Momentum App</h1>
-
-    <section id="name-section">
-        <label for="name">What is your name?</label>
-        <input type="text" name="name" id="name">
-
-        <p id="name-error"></p>
-    </section>
-
-    <section class="hide" id="email-section">
-        <label for="email">What is your email?</label>
-        <input type="email" name="email" id="email">
-
-        <p id="email-error"></p>
-    </section>
-
-    <section class="hide" id="password-section">
-        <label for="password">Assign password</label>
-        <input type="password" name="password" id="password">
-
-        <p id="password-error"></p>
-    </section> -->
-
-
-
-    <script src="assets/scripts/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+    
+    <script src="assets/scripts/main-rem-jul7.js"></script>
     <script src="assets/scripts/time.js"></script>
+    <script src="assets/scripts/focus.js"></script>
     <script src="assets/scripts/background.js"></script>
     <script src="assets/scripts/quotes.js"></script>
+    <script src="assets/scripts/settings.js"></script>
+    <script src="assets/scripts/todo.js"></script>
 </body>
 
 </html>

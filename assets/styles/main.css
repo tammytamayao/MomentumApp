@@ -6,6 +6,8 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     height: 100%;
@@ -49,12 +51,19 @@ Main Container Grid
     align-self: center;
     text-align: center;
     width: calc(100% - 2.4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .container-focus {
     grid-area: focus;
     justify-self: center;
-    align-self: center;
+    align-self: flex-start;
+    width: calc(100% - 2.4rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container-settings {
@@ -102,6 +111,468 @@ Main Container Grid
     margin-bottom: 0.8rem;
 }
 
+.div-left,
+.div-right {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.div-left {
+    justify-content: flex-end;
+}
+
+.div-right {
+    justify-content: flex-start;
+}
+
+/*
+===================================================================
+Clock
+===================================================================
+*/
+.clock {
+    display: flex;
+}
+
+.clock:hover .dotsContainer {
+    opacity: 1;
+}
+
+.clock .div-left {
+    margin-right: 45px;
+}
+
+.popupContainer .triangle-up {
+    margin-left: 10px;
+}
+
+#timePopupContainer {
+    margin-top: 85px;
+    margin-left: 10.5px;
+}
+
+.popupContainer {
+    font-size: 13px;
+    color: black;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.15s;
+    z-index: 1;
+}
+
+.popupDiv {
+    background-color: rgba(255, 255, 255);
+    padding: 6px 0;
+    height: auto;
+    width: 165px;
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+.popupOption {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.popupOption:hover {
+    cursor: pointer;
+    background: rgb(235, 235, 235);
+}
+
+#timePopupContainer .popupOption {
+    justify-content: space-between;
+}
+
+.popupText {
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.toggle {
+    position: relative;
+    margin: 0;
+}
+
+.toggle input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle .onoff {
+    color: black;
+    text-align: center;
+}
+
+.slider {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    background-color: #4CBF3F;
+    transition: 0.4s;
+    width: 32px;
+    height: 18px;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    transition: 0.40s;
+    top: 3px;
+    left: 17px;
+}
+
+input:checked + .slider {
+    background-color: darkgray;
+}
+
+input:checked + .slider:before {
+    transform: translateX(-14px);
+}
+
+.slider.round {
+    border-radius: 9px;
+}
+
+.slider.round::before {
+    border-radius: 6px;
+}
+
+/*
+===================================================================
+Focus
+===================================================================
+*/
+#focusPopupContainer {
+    opacity: 0;
+    margin-top: 120px;
+    margin-left: 10px;
+}
+
+#focusPopupContainer .popupOption {
+    justify-content: flex-start;
+}
+
+.optionIcon {
+    font-size: 1.1em;
+    color: rgb(130, 130, 130);
+    margin-right: 10px;
+    height: min-content;
+}
+
+.myFocusInput,
+.myFocusQuestion,
+.today,
+.finalFocus,
+.dots,
+.dotsContainer,
+.encouragingWords {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.myFocus {
+    width: auto;
+}
+
+.myFocusQuestion {
+    font-size: 4.5vh;
+}
+
+.myFocusInput {
+    width: 100%;
+    padding-top: 4px;
+}
+
+.classFocus {
+    background: transparent;
+    color: white;
+    text-align: center;
+    font-size: 2.25em;
+    font-weight: 500;
+    line-height: 1.2;
+    border: 0;
+    outline: 0;
+    border-bottom: 1.6px solid white;
+    width: 100%;
+}
+
+.mainFocus {
+    width: 100%;
+}
+
+.today {
+    font-size: 1.3em;
+    line-height: 120%;
+    font-weight: 600;
+    margin: 17px 0 3px 0;
+    width: 100%;
+}
+
+.finalFocus {
+    display: flex;
+    width: 100%;
+}
+
+.classFocusCheck {
+    width: 15px;
+    box-shadow: none;
+    margin-right: 8px;
+    visibility: hidden;
+}
+
+.checkboxContainer {
+    position: relative;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 0;
+    height: 28px;
+    width: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 4px 0 12px;
+}
+
+.checkboxContainer input {
+    position: absolute;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 18px;
+    width: 18px;
+    background-color: transparent;
+    border: solid 2px white;
+    border-radius: 3px;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkboxContainer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkboxContainer .checkmark:after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 14px;
+    border-right: 3.5px solid white;
+    border-bottom: 3.5px solid white;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(40deg);
+}
+
+.focusOutput {
+    font-size: 2.25rem;
+    max-width: 87.5vw;
+    text-overflow: ellipsis;
+    margin: 0;
+    line-height: 1;
+}
+
+.dots {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.dotsContainer {
+    height: 35px;
+    width: 35px;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    opacity: 0;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-focus:hover .dotsContainer,
+.container-focus:hover .checkboxContainer {
+    opacity: 1;
+}
+
+.dotsContainer:hover {
+    cursor: pointer;
+    color: white;
+    background: rgba(210, 210, 210, 0.2);
+}
+
+.checkboxContainer:hover {
+    cursor: pointer;
+}
+
+.encouragingWords {
+    font-size: 2.5vh;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#words {
+    margin: 10px 0 0 0;
+    line-height: 1.2;
+}
+
+/*
+===================================================================
+Todo
+===================================================================
+*/
+.todo-popup {
+    position: absolute;
+    bottom: 2.3rem;
+    right: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.todo-popup .triangle-down {
+    margin-right: 1.3rem;
+    margin-left: auto;
+}
+
+/*container style*/
+.todo-div {
+    height: auto;
+    width: 320px;
+    color: black;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    padding: 18px 0;
+}
+
+/*Style Input and title*/
+.todo-input-div {
+    padding: 0 21px;
+}
+
+.todo-input-div form {
+    display: flex;
+}
+
+.header {
+    position: relative;
+    padding: 0 21px;
+}
+
+.todo-input {
+    width: auto;
+    height: 30px;
+    border: none;
+    flex: 1 0 auto;
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.todo-input:focus {
+    outline: none;
+}
+
+.listItem:hover {
+    cursor: pointer;
+}
+
+#title {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin-bottom: 10px;
+}
+
+.textlabel {
+    margin: 0;
+    flex: 1 0 auto;
+}
+
+.listItem {
+    margin-left: 21px;
+    margin-right: 5px;
+}
+
+.todo-list-div {
+    margin-bottom: 10px;
+}
+
+/* Checkbox when checked*/
+.listItem:checked+label.textlabel {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/*remove padding of list*/
+.todo-list {
+    margin: 0;
+    padding-inline-start: 0;
+}
+
+/*design of to-do list item*/
+.todo-list li {
+    font-size: 16px;
+    transition: 0.2s;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+/*Change background of list item when hover*/
+.todo-list li:hover {
+    background: rgb(235, 235, 235);
+}
+
+/*Style close button*/
+.close {
+    padding: 8px 13px 8px 13px;
+}
+
+/*Change background of close button when hover*/
+.close:hover {
+    background-color: #f44336;
+    color: white;
+    cursor: pointer;
+}
+
+/*Style add item button */
+.AddBtn {
+    background: rgb(140, 140, 140);
+    cursor: pointer;
+    transition: 0.3s;
+    border: 50px;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
+
+/*Change background of add button when hover*/
+.AddBtn:hover {
+    background: rgb(180, 180, 180);
+}
+
+/*
+===================================================================
+Quote and Image Description
+===================================================================
+*/
 .photographer-div,
 .person-div {
     display: flex;
@@ -120,7 +591,7 @@ Main Container Grid
 }
 
 .desc-photographer-div {
-    height: 2em;
+    height: 2.2em;
     width: 11.5rem;
 }
 
@@ -145,7 +616,7 @@ Main Container Grid
 }
 
 .desc-div {
-    top: 20%;
+    top: 15%;
     transition: top 0.3s;
 }
 
@@ -156,50 +627,257 @@ Main Container Grid
     transition: bottom 0.3s, opacity 0.3s;
 }
 
-
 /*
 ===================================================================
-Typography
+Popup
 ===================================================================
 */
-.clock {
-    font-size: 23vh;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0,0,0.6);
 }
 
-.random-quote,
-.fa-gear {
-    font-size: 1.125rem;
+.popup {
+    background: white;
+    border-radius: 5px;
+    min-width: 500px;
+    max-width: 90%;
+    padding: 20px 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.close-btn {
+    border-radius: 50px;
+    color:gray;
+    font-size: 15px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    background: rgba(210, 210, 210, 0.6);
+}
+
+.close-btn:active {
+    background: rgba(210, 210, 210, 0.4);
+}
+
+.popup-header {
+    text-align: center;
+    margin: 0 10px 31px 10px;
+}
+
+.popup h3 {
+    color: black;
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+
+.popup-desc {
+    color: #222;
+    font-size: 1.0625rem;
+    margin-top: 2px;
+}
+
+.popup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.form-pair-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.popup-label {
+    color: rgb(50, 50, 50);
+    font-size: 0.875em;
     text-align: center;
 }
 
-.random-quote {
-    width: 48vw;
+.input-form {
+    font-family: inherit;
+    font-size: 1em;
+    padding: 2px 10px 0 10px;
+    border: none;
+    border-bottom: 1px solid rgba(210, 210, 210, 0.96);
+    text-align: center;
 }
 
-.person {
+.input-form:focus {
+    outline: none;
+}
+
+#new-person-quote {
+    width: 35ch;
+    height: 1.5rem;
+}
+
+textarea {
+    height: auto;
+    width: 45ch;
+    resize: none;
+}
+
+.form-btn {
+    background: hsl(191, 50%, 55%);
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 12px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.form-btn:hover {
+    background: hsl(191, 58%, 60%);
+    cursor: pointer;
+}
+
+.form-btn:active {
+    margin-bottom: 8px;
+    margin-top: 4px;
+}
+
+/*
+===================================================================
+Settings
+===================================================================
+*/
+.settings-popup {
+    position: absolute;
+    left: 0.5rem;
+    bottom: 2.3rem;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.settings-popup .triangle-down {
+    margin-left: 0.9rem;
+}
+
+.settings-div {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 5px;
+    height: 520px;
+    width: 720px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "settings-navbar settings-view";
+}
+
+.settings-navbar {
+    grid-area: settings-navbar;
+    padding-top: 23px;
+    border-right: 1px solid rgba(210, 210, 210, 0.96);
+}
+
+.nav-item {
+    color: gray;
+    font-size: 1.1em;
+    width: 100%;
+    padding: 5px 21px;
+}
+
+.nav-item:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.nav-item-active {
+    color: black;
+    font-weight: 600;
+}
+
+.settings-view {
+    overflow-y: auto;
+}
+
+.settings-view-item {
+    padding: 30px;
+}
+
+.settings-header,
+.quote-item {
+    border-bottom: 1px solid rgba(210, 210, 210, 0.96);
+}
+
+.settings-header h3 {
+    color: black;
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+
+.settings-desc {
+    color: gray;
     font-size: 0.875rem;
+    margin-bottom: 21px;
 }
 
-.img-desc {
-    font-size: 0.8125rem;
+button {
+    background: hsl(208, 25%, 32%);
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 12px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.8125em;
 }
 
-.photographer,
-.photographer-div .fa-shuffle  {
-    font-size: 0.6875rem;
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
 }
 
-.todo-button {
-    font-size: 1rem;
+button:active {
+    opacity: 0.6;
 }
 
-.person,
-.photographer,
-.fa-gear,
-.fa-shuffle,
-.todo-button {
-    color: rgb(210, 210, 210);
+.quote-list {
+    list-style-type: none;
+    width: inherit;
 }
+
+.quote-item {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    text-align: left;
+    padding: 11px 0;
+}
+
+.quote-body {
+    color: black;
+    font-size: 1em;
+}
+
+.quote-person {
+    color: gray;
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
 
 
 /*
@@ -234,6 +912,78 @@ Transitions
     opacity: 1;
 }
 
+.active {
+    color: white !important;
+}
+
+/*
+===================================================================
+Popup triangles
+===================================================================
+*/
+.triangle-down,
+.triangle-up {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    width: 7px;
+    height: 7px;
+}
+
+.triangle-down {
+    border-bottom: 7px solid transparent;
+    border-top: 7px solid rgba(255, 255, 255, 0.96);
+}
+
+.triangle-up {
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid rgba(255, 255, 255, 0.96);
+}
+
+/*
+===================================================================
+Typography
+===================================================================
+*/
+#myTime {
+    font-size: 22vh;
+    line-height: 1;
+}
+
+.random-quote,
+.fa-gear {
+    font-size: 1.125em;
+    text-align: center;
+}
+
+.random-quote {
+    width: 48vw;
+    margin: 0;
+}
+
+.person {
+    font-size: 0.875em;
+}
+
+.img-desc {
+    font-size: 0.8125rem;
+}
+
+.photographer,
+.photographer-div .fa-shuffle  {
+    font-size: 0.6875rem;
+}
+
+.todo-button {
+    font-size: 1rem;
+}
+
+.person,
+.photographer,
+.fa-gear,
+.fa-shuffle,
+.todo-button {
+    color: rgb(210, 210, 210);
+}
 
 /*
 ===================================================================

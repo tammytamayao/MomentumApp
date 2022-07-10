@@ -43,6 +43,7 @@ const defaultQuotes = [
 
 class Quote {
     constructor(person, quote) {
+        person = (person !== "") ? person : "Unknown";
         this.person = person;
         this.quote = quote;
     }
@@ -52,17 +53,6 @@ const localQuotesArray = JSON.parse(localStorage.getItem('quotes'));
 
 if (!localQuotesArray) {
     localStorage.setItem('quotes', JSON.stringify(defaultQuotes))
-}
-
-function addQuote() {
-    let quote = prompt("Enter a quote: ");
-    let person = prompt("Enter the person that made that quote: ");
-
-    if (quote && person) {
-        const newQuote = new Quote(person, quote);
-        localQuotesArray.push(newQuote);
-        localStorage.setItem('quotes', JSON.stringify(localQuotesArray));
-    }
 }
 
 function setRandomQuote() {
@@ -75,7 +65,54 @@ function setRandomQuote() {
     quotePersonSpan.textContent = `${randomQuote.person}`;
 }
 
+function showQuoteList() {
+    const quoteList = document.querySelector(".quote-list");
+    for(let i = 0; i < localQuotesArray.length; i++) {
+        quoteItem = document.createElement("li");
+        quoteItem.classList.add("quote-item");
+    
+        quoteBody = document.createElement("span");
+        quoteBody.classList.add("quote-body");
+        quoteBody.textContent = `"${localQuotesArray[i].quote}"`;
+    
+        quotePerson = document.createElement("span");
+        quotePerson.classList.add("quote-person");
+        quotePerson.textContent = `${localQuotesArray[i].person}`;
+    
+        quoteItem.appendChild(quoteBody);
+        quoteItem.appendChild(quotePerson);
+        quoteList.appendChild(quoteItem);
+    }
+}
+
+
+function addQuote() {
+    let newQuote = document.querySelector("#new-quote").value;
+    let newPerson = document.querySelector("#new-person-quote").value;
+
+    if (newQuote) {
+        const addedQuote = new Quote(newPerson, newQuote);
+        localQuotesArray.push(addedQuote);
+        localStorage.setItem('quotes', JSON.stringify(localQuotesArray));
+        showQuoteList();
+        toggleAddQuotePopup();
+    }
+}
+
+function toggleAddQuotePopup() {
+    const addQuotePopup = document.querySelector("#add-quote-popup");
+    const overlay = document.querySelector(".overlay");
+    addQuotePopup.classList.toggle("hide");
+    overlay.classList.toggle("hide");
+}
+
 const quoteShuffle = document.querySelector("#quote-shuffle");
 quoteShuffle.addEventListener("click", setRandomQuote);
 
+const closeQuoteBtn = document.querySelector("#add-quote-close");
+const addQuoteBtn = document.querySelector("#add-quote");
+closeQuoteBtn.addEventListener("click", toggleAddQuotePopup);
+addQuoteBtn.addEventListener("click", toggleAddQuotePopup);
+
 setRandomQuote();
+showQuoteList();
