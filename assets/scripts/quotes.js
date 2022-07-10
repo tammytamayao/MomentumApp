@@ -67,24 +67,29 @@ function setRandomQuote() {
     quotePersonSpan.textContent = `${randomQuote.person}`;
 }
 
-function showQuoteList() {
+function showQuoteItem(newQuote) {
     const quoteList = document.querySelector(".quote-list");
+    
+    quoteItem = document.createElement("li");
+    quoteItem.classList.add("quote-item");
+
+    quoteBody = document.createElement("span");
+    quoteBody.classList.add("quote-body");
+    quoteBody.textContent = `"${newQuote.quote}"`;
+
+    quotePerson = document.createElement("span");
+    quotePerson.classList.add("quote-person");
+    quotePerson.textContent = `${newQuote.person}`;
+
+    quoteItem.appendChild(quoteBody);
+    quoteItem.appendChild(quotePerson);
+    quoteList.appendChild(quoteItem);
+}
+
+function showQuoteList() {
     const localQuotesArray = getLocalQuotes();
     for(let i = 0; i < localQuotesArray.length; i++) {
-        quoteItem = document.createElement("li");
-        quoteItem.classList.add("quote-item");
-    
-        quoteBody = document.createElement("span");
-        quoteBody.classList.add("quote-body");
-        quoteBody.textContent = `"${localQuotesArray[i].quote}"`;
-    
-        quotePerson = document.createElement("span");
-        quotePerson.classList.add("quote-person");
-        quotePerson.textContent = `${localQuotesArray[i].person}`;
-    
-        quoteItem.appendChild(quoteBody);
-        quoteItem.appendChild(quotePerson);
-        quoteList.appendChild(quoteItem);
+        showQuoteItem(localQuotesArray[i]);
     }
 }
 
@@ -98,7 +103,7 @@ function addQuote() {
         const addedQuote = new Quote(newPerson, newQuote);
         localQuotesArray.push(addedQuote);
         localStorage.setItem('quotes', JSON.stringify(localQuotesArray));
-        showQuoteList();
+        showQuoteItem(addedQuote);
         toggleAddQuotePopup();
     }
 }
