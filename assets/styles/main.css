@@ -999,7 +999,7 @@ Typography
 .fa-gear,
 .fa-shuffle,
 .todo-button {
-    color: rgb(210, 210, 210);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /*
