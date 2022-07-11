@@ -1013,10 +1013,62 @@ Media Queries
 */
 @media screen and (max-width: 768px) {
     .main-container {
+        grid-template-rows: 1fr 2fr 1.25fr 0.375fr 0.375fr;
         grid-template-areas: "link link weather weather" 
                             "clock clock clock clock" 
                             "focus focus focus focus" 
                             "quote quote quote quote" 
                             "settings settings todo todo";
+    }
+
+    .quote-person-div {
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .quote-div {
+        font-style: italic;
+    }
+
+    .quote-div,
+    .desc-div {
+        position: initial;
+        font-size: 0.9em;
+
+    }
+
+    .person-div,
+    .photographer-div {
+        position: initial;
+        opacity: 1;
+    }
+
+    .person-div {
+        display: flex;
+        justify-content: center;
+        transform: none;
+    }
+
+    .random-quote {
+        width: 100%;
+    }
+
+    #myTime {
+        font-size: 20vw;
+    }
+
+    #greeting {
+        font-size: 8vw;
+    }
+
+    .myFocusQuestion {
+        font-size: 5vw;
+    }
+
+    .classFocus, 
+    .focusOutput {
+        font-size: 6vw;
     }
 }
