@@ -82,7 +82,7 @@ window.addEventListener('load', (event) => {
     if(typeof localStorage.focus !== 'undefined') {
         document.getElementById("focusCheck").checked = localStorage.getItem(focusCheck);
                     
-        if (localStorage.focusCheck) {
+        if (JSON.parse(localStorage.focusCheck)) {
             document.getElementById("textFocusOutput").style.textDecoration = 'line-through';
             checkbox.click();
         }
