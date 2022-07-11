@@ -1,5 +1,5 @@
+setInterval(setGreeting, 3600000);
 homePage();
-setInterval(getGreeting, 3600000);
 
 function validateEmail(string) {
     // The regular expression used by [type="email"]
@@ -133,7 +133,8 @@ document.addEventListener(('DOMContentLoaded'), () => {
             }
 
             localStorage.setItem('formSuccess', true); // set item to local storage    
-   
+            setGreeting();
+            
             document.querySelector(".container").style.opacity = 0;
             setTimeout(function() {document.querySelector(".container").classList.add("hide")}, 500);
 
