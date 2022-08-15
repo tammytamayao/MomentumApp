@@ -8,20 +8,6 @@ if (localStorage.getItem('toDoList') != null) {
     })
 }
 
-// Delete todo
-// NEED TO FIX - MAY DI NABUBURA SA LOCAL STORAGE
-// $('.todo-list').on('click', '.close', function () {
-//     const toDoList = JSON.parse(localStorage.getItem('toDoList'));
-//     console.log('getting close');
-//     let listIndex = $(this).closest('li').data('index');
-//     listItem = $(this).closest('li')[0];
-//     console.log(listItem);
-//     toDoList.splice(listIndex, 1);
-//     listItem.remove();
-//     console.log(listIndex);
-//     localStorage.setItem('toDoList', JSON.stringify(toDoList));
-// })
-
 // Remove todo
 function removeTask() {
     const spans = document.querySelectorAll('.close');
@@ -30,17 +16,6 @@ function removeTask() {
     this.parentElement.remove();
     localStorage.setItem('toDoList', JSON.stringify(toDoList));
 };
-
-// Done task on checkbox
-// $('.todo-list').on('change', '.listItem', function () {
-//     toDoList = JSON.parse(localStorage.getItem('toDoList'));
-//     let doneTask = $(this).is(':checked');
-//     let listIndex = $(this).closest('li').data('index');
-//     let listItem = toDoList[listIndex];
-//     console.log(listItem);
-//     listItem.done = doneTask;
-//     localStorage.setItem('toDoList', JSON.stringify(toDoList));
-// })
 
 function toggleTask() {
     const checkboxes = document.querySelectorAll('.listItem');
@@ -139,24 +114,7 @@ function displayList(input, index) {
     span.addEventListener("click", removeTask);
     span.appendChild(text);
     list.appendChild(span);
-
-    // for (i = 0; i < close.length; i++) {
-        // close[i].onclick = function () {
-        //     var div = this.parentElement;
-        //     div.style.display = "none";
-        // }
-    // }
 }
-
-//Click close button to hide element
-// var close = document.getElementsByClassName("close");
-// var i;
-// for (i = 0; i < close.length; i++) {
-//     close[i].onclick = function () {
-//         let div = this.parentElement;
-//         div.style.display;
-//     }
-// }
 
 
 //Show/hide todo popup when todo button is clicked
