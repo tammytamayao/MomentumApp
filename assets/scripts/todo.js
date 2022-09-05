@@ -34,7 +34,6 @@ function newToDo() {
     const checkbox = document.createElement('input');
     checkbox.type = "checkbox";
     checkbox.name = "checkbox";
-    // checkbox.value = "value";
     checkbox.id = "checkbox";
     checkbox.className = 'listItem';
     checkbox.addEventListener("click", toggleTask);
@@ -63,15 +62,7 @@ function newToDo() {
     list.appendChild(span);
     toDoList.push({ text: input, done: false });
     localStorage.setItem('toDoList', JSON.stringify(toDoList));
-    // console.log(toDoList.length);
     list.setAttribute('data-index', toDoList.length - 1);
-
-    // for (i = 0; i < close.length; i++) {
-    //     close[i].onclick = function () {
-    //         var div = this.parentElement;
-    //         div.style.display = "none";
-    //     }
-    // }
 }
 // TODO: Create a function that will change the done status of the todolist;
 
@@ -94,10 +85,8 @@ function displayList(input, index) {
     checkbox.checked = "true";
     }
 
-
     list.appendChild(checkbox);
     list.appendChild(label);
-
 
     if (input === '') {
     alert("Write what you want to do!");
@@ -117,7 +106,7 @@ function displayList(input, index) {
 }
 
 
-//Show/hide todo popup when todo button is clicked
+//Show or hide todo popup when todo button is clicked
 const toDoBtn = document.querySelector(".todo-button");
 const toDoPopup = document.querySelector(".todo-popup");
 
